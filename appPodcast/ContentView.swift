@@ -23,7 +23,7 @@ struct ContentView: View {
         
         
         // MARK: Button Design
-        Image("89")
+        Image("90")
           .resizable()
           .frame(width: 60, height: 60, alignment: .leading)
         
@@ -129,9 +129,16 @@ struct ContentView: View {
             style: .circular
           )
           .fill(Color(hue: 0, saturation: 0, brightness: 0.2))
-        //.stroke(Color.green, lineWidth: 0.5)
+          .strokeBorder(
+            RadialGradient(gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.45),
+                                                       Color(hue: 0, saturation: 0, brightness: 0.1)]),
+                                                              // TODO: Добавить стоку слева и справа
+                           center: UnitPoint(x: 0.25, y: 0),  // TODO: Сделать как констатну
+                           startRadius: 0,                   // Или нет, потому что исп только тут
+                           endRadius: 50),
+            lineWidth: 0.5)
         )
-        
+
         
 // -----------------------------------------------------------------------------
       } // VStack
