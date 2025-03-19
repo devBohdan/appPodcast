@@ -23,17 +23,17 @@ struct ContentView: View {
         
         
         // MARK: Button Design
-        Image("90")
+        Image("00")
           .resizable()
           .frame(width: 60, height: 60, alignment: .leading)
         
         // MARK: Button
         // FIXME: Контрастрнее цвета, чёрный чернее. Блик умеништьб до 20%
         Button(action: {}) {
-          Image(systemName: "heart.fill")
+//          Image(systemName: "heart.fill")
 //          Text("Aaaa")
         }
-        
+      
         // MARK: Button / Inside
         .labelStyle(.iconOnly)
         .padding(5)  // Padding for ICON
@@ -43,14 +43,13 @@ struct ContentView: View {
             cornerRadius: 999,
             style: .circular
           )
-          
           .fill(
             Color(hue: 0, saturation: 0, brightness: 0.2)
             // Inner shadow
             .shadow(.inner(color: .white.opacity(0.2), radius: 0.5, x: 0.5, y: 1))
             .shadow(.inner(color: .black.opacity(0.8), radius: 1, x: 0, y: 0))
-            
           )
+          
           .strokeBorder(
             RadialGradient(gradient: Gradient(colors: [.white.opacity(0.5),
                                                        .white.opacity(0.5),
@@ -59,7 +58,15 @@ struct ContentView: View {
                            startRadius: 0,                   // Или нет, потому что исп только тут
                            endRadius: 25),
             lineWidth: 0.5)
+          .overlay(
+            Image("Noize")
+              .resizable(resizingMode: .tile)
+              .opacity(0.50)
+              .cornerRadius(999) // TODO:  ко всему
+          )
         )
+
+        
         // Black shadow
         .background(  // 0
           RoundedRectangle(cornerRadius: 999, style: .circular)
@@ -137,7 +144,15 @@ struct ContentView: View {
                            startRadius: 0,                   // Или нет, потому что исп только тут
                            endRadius: 50),
             lineWidth: 0.5)
+          .overlay(
+            Image("Noize")
+              .resizable(resizingMode: .tile)
+              .opacity(0.50)
+              .cornerRadius(4) // TODO:  ко всему
+          )
         )
+        
+        
 
         
 // -----------------------------------------------------------------------------
