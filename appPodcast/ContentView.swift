@@ -18,13 +18,19 @@ struct ContentView: View {
       //------------------------------------------------------------------------
       
       
-      HStack(alignment: .bottom, spacing: 2) {
-        // MARK: Screen
-        PlayerDisplayView()
-        // MARK: Buttons
-        PlayerButtonView()
-        PlayerButtonView()
-        PlayerButtonView()
+      VStack {
+        Spacer()
+        
+        HStack(alignment: .bottom, spacing: 2) {
+          // MARK: Screen
+          PlayerDisplayView()
+          
+          // MARK: Buttons
+          PlayerButtonView()
+          PlayerButtonView()
+          PlayerButtonView()
+        }
+
       }
     }
   }
