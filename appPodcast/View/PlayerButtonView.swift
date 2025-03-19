@@ -49,8 +49,6 @@ struct PlayerButtonView: View {
           .cornerRadius(999) // TODO:  ко всему
       )
     )
-    
-    
     // Black shadow
     .background(  // 0
       RoundedRectangle(cornerRadius: 999, style: .circular)
@@ -136,4 +134,14 @@ struct PlayerButtonView: View {
       )
     )
   }
+}
+
+
+#Preview {
+  PlayerButtonView()
+  
+  // MARK: Button Design
+  Image("00")
+    .resizable()
+    .frame(width: 60, height: 60, alignment: .leading)
 }
