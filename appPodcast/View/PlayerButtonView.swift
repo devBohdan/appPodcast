@@ -46,7 +46,7 @@ struct PlayerButtonView: View {
         Image("Noize")
           .resizable(resizingMode: .tile)
           .opacity(0.50)
-          .cornerRadius(999) // TODO:  ко всему
+          .cornerRadius(999) // TODO:  ко всему .clipShape(.rect(cornerRadius: 5))
       )
     )
     // Black shadow
@@ -130,7 +130,7 @@ struct PlayerButtonView: View {
         Image("Noize")
           .resizable(resizingMode: .tile)
           .opacity(0.50)
-          .cornerRadius(4) // TODO:  ко всему
+          .cornerRadius(4) // TODO:  ко всему .clipShape(.rect(cornerRadius: 5))
       )
     )
   }

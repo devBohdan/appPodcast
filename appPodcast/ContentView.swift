@@ -30,7 +30,7 @@ struct ContentView: View {
           PlayerButtonView()
           PlayerButtonView()
         }
-
+        Spacer()
       }
     }
   }
