@@ -9,29 +9,21 @@ import SwiftUI
 
 struct ContentView: View {
   var body: some View {
-    ZStack {
-      // MARK: BG Design
-      Image("CONTENT")
-        .resizable()
-        .edgesIgnoringSafeArea(.all)
-        .scaledToFill()
-      //------------------------------------------------------------------------
-      
-      
-      VStack {
-        Spacer()
-        
+    VStack {
+      Spacer()
+      VStack(spacing: 1) {
+        // MARK: Mini Progres Bar
+        PlayerProgressBar()
         HStack(alignment: .bottom, spacing: 2) {
-          // MARK: Screen
+          // MARK: Mini Screen
           PlayerDisplayView()
-          
-          // MARK: Buttons
+          // MARK: Mini Buttons
           PlayerButtonView()
           PlayerButtonView()
           PlayerButtonView()
             .padding(.trailing, 2)
         }
-        Spacer()
+        //Tabs
       }
     }
   }

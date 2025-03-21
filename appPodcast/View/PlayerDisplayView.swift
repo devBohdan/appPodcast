@@ -12,7 +12,7 @@ import SwiftUI
 struct PlayerDisplayView: View {
   var body: some View {
     HStack {
-      Image(systemName:"")
+      Image("Podcast")
         .resizable()
         .aspectRatio(contentMode: .fill)
         .frame(width: 44, height: 44)
@@ -30,7 +30,7 @@ struct PlayerDisplayView: View {
       
       Spacer()
     }
-    .padding(9)  // TODO: Увеличить только высоту на 1
+    .padding(9)  // TODO: Всё что ниже это общее для всех дисплеев
     .border(.black.opacity(0.25), width: 1)
     
     .background( // TODO: Add BG Color, and this set as forground ZStack
