@@ -29,6 +29,7 @@ struct ContentView: View {
           PlayerButtonView()
           PlayerButtonView()
           PlayerButtonView()
+            .padding(.trailing, 2)
         }
         Spacer()
       }
