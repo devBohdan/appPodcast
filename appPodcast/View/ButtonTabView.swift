@@ -33,17 +33,44 @@ struct ButtonTabView: View {
             .opacity(0.5)
         )
     )
-    .overlay(
-      Rectangle().frame(height: 1).foregroundColor(Color(hue: 0, saturation: 0, brightness: 0.5).opacity(0.3)), alignment: .top)
+    .overlay(alignment: .top) {
+      Rectangle()
+        .frame(height: 1)
+//        .foregroundColor(Color(hue: 0, saturation: 0, brightness: 0.5).opacity(0.3))
+        .overlay(
+          LinearGradient(gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.28),
+                                                     Color(hue: 0, saturation: 0, brightness: 0.48),
+                                                     Color(hue: 0, saturation: 0, brightness: 0.28)]),
+                         startPoint: .leading,
+                         endPoint: UnitPoint(x: 0.5, y: 0.5))
+        )
+        .offset(y: 3)
+    }
   }
 }
 
 
 #Preview {
-  ButtonTabView()
+  HStack(spacing: 1) {
+    ButtonTabView()
+    ButtonTabView()
+    ButtonTabView()
+    ButtonTabView()
+  }
   
   // MARK: ButtonTabView Design
-  Image("Tab")
-    .resizable()
-    .frame(width: 99, height: 62, alignment: .leading)
+  HStack(spacing: 1) {
+    Image("Tab")
+      .resizable()
+      .frame(width: 99, height: 62, alignment: .leading)
+    Image("Tab")
+      .resizable()
+      .frame(width: 99, height: 62, alignment: .leading)
+    Image("Tab")
+      .resizable()
+      .frame(width: 99, height: 62, alignment: .leading)
+    Image("Tab")
+      .resizable()
+      .frame(width: 99, height: 62, alignment: .leading)
+  }
 }
