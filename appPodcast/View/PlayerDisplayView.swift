@@ -30,10 +30,12 @@ struct PlayerDisplayView: View {
       
       Spacer()
     }
-    .padding(9)  // TODO: Всё что ниже это общее для всех дисплеев
+    .padding(9)
+    // TODO: Всё что ниже это общее для всех дисплеев
     .border(.black.opacity(0.25), width: 1)
     
-    .background( // TODO: Add BG Color, and this set as forground ZStack
+    // TODO: Add BG Color, and this set as forground ZStack
+    .background(
       LinearGradient(gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.1),
                                                  Color(hue: 0, saturation: 0, brightness: 0.05)]),
                      startPoint: UnitPoint(x: 0.25, y: 0),
@@ -42,7 +44,7 @@ struct PlayerDisplayView: View {
     .overlay(
       Rectangle()
         .frame(height: 0.5)
-        .foregroundColor(Color(hue: 0, saturation: 0, brightness: 0.4)),
+        .foregroundStyle(Color(hue: 0, saturation: 0, brightness: 0.4)),
       alignment: .top
     )
   }

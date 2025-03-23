@@ -21,7 +21,7 @@ struct ButtonTabView: View {
     .foregroundStyle(.white.opacity(0.9))
     
     // Size
-    .frame(width: .infinity, height: 62, alignment: .center)
+    .frame(height: 62, alignment: .center)
 
     .background(
       Rectangle()
