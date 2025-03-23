@@ -33,7 +33,7 @@ struct PlayerButtonView: View {
           .shadow(.inner(color: .white.opacity(0.2), radius: 0.5, x: 0.5, y: 1))
           .shadow(.inner(color: .black.opacity(0.8), radius: 1, x: 0, y: 0))
       )
-      
+      // Blick inside
       .strokeBorder(
         RadialGradient(gradient: Gradient(colors: [.white.opacity(0.5),
                                                    .white.opacity(0.5),
@@ -119,7 +119,7 @@ struct PlayerButtonView: View {
       )
       .fill(Color(hue: 0, saturation: 0, brightness: 0.2))
       .strokeBorder(
-        RadialGradient(gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.45),
+        RadialGradient(gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.5),
                                                    Color(hue: 0, saturation: 0, brightness: 0.1)]),
                        // TODO: Добавить стоку слева и справа
                        center: UnitPoint(x: 0.25, y: 0),  // TODO: Сделать как констатну

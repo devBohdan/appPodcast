@@ -15,7 +15,7 @@ struct ContentView: View {
         VStack(spacing: 1) {
           // MARK: Mini Progres Bar
           PlayerProgressBar()
-          HStack(alignment: .bottom, spacing: 2) {
+          HStack(alignment: .center, spacing: 2) {  // TODO: alignment: .bottom? 
             // MARK: Mini Screen
             PlayerDisplayView()
             // MARK: Mini Buttons
@@ -33,6 +33,7 @@ struct ContentView: View {
         }
       }
     }
+    .background(Color.black)
   }
 }
 

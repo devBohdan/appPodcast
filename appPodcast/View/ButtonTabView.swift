@@ -12,40 +12,56 @@ struct ButtonTabView: View {
   var body: some View {
     // MARK: Button
     Button(action: {}) {
+      Spacer()
       Text("LIBRARY")
+      Spacer()
     }
+    // Font
     .font(.system(.footnote, design: .monospaced))
     .foregroundStyle(.white.opacity(0.9))
     
-    .frame(width: 99, height: 62, alignment: .center)
+    // Size
+    .frame(width: .infinity, height: 62, alignment: .center)
+
     .background(
       Rectangle()
+        // Color
         .fill(
-          LinearGradient(gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.18),
-                                                     Color(hue: 0, saturation: 0, brightness: 0.38),
-                                                     Color(hue: 0, saturation: 0, brightness: 0.18)]),
+          LinearGradient(gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.2),
+                                                     Color(hue: 0, saturation: 0, brightness: 0.4),
+                                                     Color(hue: 0, saturation: 0, brightness: 0.2)]),
                          startPoint: .top,
                          endPoint: UnitPoint(x: 0.5, y: 0.12))
         )
+        // Blick
+        .overlay(alignment: .top) {
+          Rectangle()
+            .frame(height: 1)
+            .overlay(
+              LinearGradient(gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.4),
+                                                         Color(hue: 0, saturation: 0, brightness: 0.5),
+                                                         Color(hue: 0, saturation: 0, brightness: 0.4)]),
+                             startPoint: .leading,
+                             endPoint: UnitPoint(x: 0.7, y: 0.5))
+            )
+            .offset(y: 3)
+        }
+        // Noise
         .overlay(
           Image("Noize")
             .resizable(resizingMode: .tile)
             .opacity(0.5)
         )
+        // Left Border
+        .overlay(alignment: . leading) {
+          Rectangle()
+            .frame(width: 1)
+            .overlay(
+              Color(Color(hue: 0, saturation: 0, brightness: 0.25))
+            )
+            .clipped()
+        }
     )
-    .overlay(alignment: .top) {
-      Rectangle()
-        .frame(height: 1)
-//        .foregroundColor(Color(hue: 0, saturation: 0, brightness: 0.5).opacity(0.3))
-        .overlay(
-          LinearGradient(gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.28),
-                                                     Color(hue: 0, saturation: 0, brightness: 0.48),
-                                                     Color(hue: 0, saturation: 0, brightness: 0.28)]),
-                         startPoint: .leading,
-                         endPoint: UnitPoint(x: 0.5, y: 0.5))
-        )
-        .offset(y: 3)
-    }
   }
 }
 
