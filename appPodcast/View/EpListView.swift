@@ -10,8 +10,8 @@ import SwiftUI
 struct EpListView: View {
   var body: some View {
     // MARK: Ep List
-    VStack(alignment: .leading) {
-      HStack {
+    VStack(alignment: .leading, spacing: 8) {
+      HStack(spacing: 8) {
         Image("Podcast")
           .resizable()
           .aspectRatio(contentMode: .fill)
@@ -24,7 +24,7 @@ struct EpListView: View {
           .foregroundStyle(.white.opacity(0.9))
       }
       Text("12 apr, 2019 • Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia")
-        .lineLimit(2)
+        .lineLimit(3)
         .font(.system(.caption, design: .monospaced, weight: .light))
         .foregroundStyle(.white.opacity(0.9))
       
@@ -57,7 +57,7 @@ struct EpListView: View {
         }
       }
     }
-    .padding(/*.horizontal,*/ 15)
+    .padding(16)
     .overlay(
       Rectangle()
         .frame(height: 1)
