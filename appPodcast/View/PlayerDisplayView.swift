@@ -17,7 +17,7 @@ struct PlayerDisplayView: View {
         .aspectRatio(contentMode: .fill)
         .frame(width: 44, height: 44)
         .background(Color(.gray))
-        .clipShape(.rect(cornerRadius: 5))
+        .clipShape(RoundedRectangle(cornerRadius: 5))
       
       VStack(alignment: .leading) {
         Text("Why Should We Care About Privacy?")
@@ -31,26 +31,13 @@ struct PlayerDisplayView: View {
       Spacer()
     }
     .padding(9)
-    // TODO: Всё что ниже это общее для всех дисплеев
-    .border(.black.opacity(0.25), width: 1)
-    
-    // TODO: Add BG Color, and this set as forground ZStack
-    .background(
-      LinearGradient(gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.1),
-                                                 Color(hue: 0, saturation: 0, brightness: 0.05)]),
-                     startPoint: UnitPoint(x: 0.25, y: 0),
-                     endPoint: UnitPoint(x: 0.75, y: 1))
-    )
-    .overlay(
-      Rectangle()
-        .frame(height: 0.5)
-        .foregroundStyle(Color(hue: 0, saturation: 0, brightness: 0.4)),
-      alignment: .top
-    )
+    // Blick
+    .overlay(DisplayBlickView())
   }
 }
 
 #Preview {
+  
   PlayerDisplayView()
     .frame(width: 214, height: 61, alignment: .leading)
   

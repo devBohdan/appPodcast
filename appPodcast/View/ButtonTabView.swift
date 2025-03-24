@@ -22,10 +22,10 @@ struct ButtonTabView: View {
     
     // Size
     .frame(height: 62, alignment: .center)
-
+    
     .background(
       Rectangle()
-        // Color
+      // Color
         .fill(
           LinearGradient(gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.2),
                                                      Color(hue: 0, saturation: 0, brightness: 0.4),
@@ -33,7 +33,7 @@ struct ButtonTabView: View {
                          startPoint: .top,
                          endPoint: UnitPoint(x: 0.5, y: 0.12))
         )
-        // Blick
+      // Blick
         .overlay(alignment: .top) {
           Rectangle()
             .frame(height: 1)
@@ -46,28 +46,29 @@ struct ButtonTabView: View {
             )
             .offset(y: 3)
         }
-        // Noise
+      
         .overlay(
-          Image("Noize")
-            .resizable(resizingMode: .tile)
-            .opacity(0.5)
+          ZStack(alignment: . leading) {
+            // Noise
+            Image("Noize")
+              .resizable(resizingMode: .tile)
+              .opacity(0.5)
+            // Left Border
+            Rectangle()
+              .frame(width: 1)
+              .overlay(
+                Color(Color(hue: 0, saturation: 0, brightness: 0.25))
+              )
+              .clipped()
+          }
         )
-        // Left Border
-        .overlay(alignment: . leading) {
-          Rectangle()
-            .frame(width: 1)
-            .overlay(
-              Color(Color(hue: 0, saturation: 0, brightness: 0.25))
-            )
-            .clipped()
-        }
     )
   }
 }
 
 
 #Preview {
-  HStack(spacing: 1) {
+  HStack(spacing: 2) {
     ButtonTabView()
     ButtonTabView()
     ButtonTabView()
@@ -75,7 +76,7 @@ struct ButtonTabView: View {
   }
   
   // MARK: ButtonTabView Design
-  HStack(spacing: 1) {
+  HStack(spacing: 2) {
     Image("Tab")
       .resizable()
       .frame(width: 99, height: 62, alignment: .leading)

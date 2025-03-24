@@ -24,24 +24,15 @@ struct PlayerProgressBar: View {
     .padding(.horizontal, 10)
     .padding(.vertical, 2)
     
-    // TODO: Add BG Color, and this set as forground ZStack
-    .border(.black.opacity(0.25), width: 1)
-    .background(
-      LinearGradient(gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.1),
-                                                 Color(hue: 0, saturation: 0, brightness: 0.05)]),
-                     startPoint: UnitPoint(x: 0.25, y: 0),
-                     endPoint: UnitPoint(x: 0.75, y: 1))
-    )
-    // Border Top
-    .overlay(
-      Rectangle()
-        .frame(height: 0.5)
-        .foregroundStyle(Color(hue: 0, saturation: 0, brightness: 0.4)),
-      alignment: .top
-    )
     // MARK: Progress
     .overlay(
-      Rectangle().frame(width: 100).foregroundStyle(.white.opacity(0.1)), alignment: .leading)
+      ZStack(alignment: .leading) {
+        Rectangle().frame(width: 100).foregroundStyle(.white.opacity(0.1))
+        // Blick
+        DisplayBlickView()
+      }
+    )
+    
   }
 }
 

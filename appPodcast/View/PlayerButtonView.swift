@@ -7,12 +7,11 @@
 
 
 import SwiftUI
-  
+
 struct PlayerButtonView: View {
   var body: some View {
     
     // MARK: Button
-    // FIXME: Контрастрнее цвета, чёрный чернее. Блик умеништьб до 20%
     Button(action: {}) {
       //          Image(systemName: "heart.fill")
       //          Text("Text")
@@ -23,10 +22,7 @@ struct PlayerButtonView: View {
     .padding(5)  // Padding for ICON
     .frame(minWidth: 32, minHeight: 32)
     .background(
-      RoundedRectangle(
-        cornerRadius: 999,
-        style: .circular
-      )
+      RoundedRectangle(cornerRadius: 9999, style: .circular)
       .fill(
         Color(hue: 0, saturation: 0, brightness: 0.2)
         // Inner shadow
@@ -34,20 +30,20 @@ struct PlayerButtonView: View {
           .shadow(.inner(color: .black.opacity(0.8), radius: 1, x: 0, y: 0))
       )
       // Blick inside
-      .strokeBorder(
-        RadialGradient(gradient: Gradient(colors: [.white.opacity(0.5),
-                                                   .white.opacity(0.5),
-                                                   .black.opacity(0.5)]),
-                       center: UnitPoint(x: 0.25, y: 0),  // TODO: Сделать как констатну
-                       startRadius: 0,                   // Или нет, потому что исп только тут
-                       endRadius: 25),
-        lineWidth: 0.5)
-      .overlay(
-        Image("Noize")
-          .resizable(resizingMode: .tile)
-          .opacity(0.50)
-          .cornerRadius(999) // TODO:  ко всему .clipShape(.rect(cornerRadius: 5))
-      )
+        .strokeBorder(
+          RadialGradient(gradient: Gradient(colors: [.white.opacity(0.5),
+                                                     .white.opacity(0.5),
+                                                     .black.opacity(0.5)]),
+                         center: UnitPoint(x: 0.25, y: 0),
+                         startRadius: 0,
+                         endRadius: 25),
+          lineWidth: 0.5)
+        .overlay(
+          Image("Noize")
+            .resizable(resizingMode: .tile)
+            .opacity(0.50)
+            .clipShape(RoundedRectangle(cornerRadius: 9999))
+        )
     )
     // Black shadow
     .background(  // 0
@@ -113,26 +109,36 @@ struct PlayerButtonView: View {
     .padding(14)  // Padding for inside btn
     .frame(minWidth: 60, minHeight: 60)
     .background(
-      RoundedRectangle(
-        cornerRadius: 4,
-        style: .circular
-      )
+      RoundedRectangle(cornerRadius: 4, style: .circular)
       .fill(Color(hue: 0, saturation: 0, brightness: 0.2))
+      // Blick
       .strokeBorder(
-        RadialGradient(gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.5),
+        RadialGradient(gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.4),
                                                    Color(hue: 0, saturation: 0, brightness: 0.1)]),
-                       // TODO: Добавить стоку слева и справа
-                       center: UnitPoint(x: 0.25, y: 0),  // TODO: Сделать как констатну
-                       startRadius: 0,                   // Или нет, потому что исп только тут
-                       endRadius: 50),
-        lineWidth: 0.5)
+                       center: UnitPoint(x: 0.25, y: 0),
+                       startRadius: 0,
+                       endRadius: 75),
+        lineWidth: 0.5
+      )
       .overlay(
-        Image("Noize")
-          .resizable(resizingMode: .tile)
-          .opacity(0.50)
-          .cornerRadius(4) // TODO:  ко всему .clipShape(.rect(cornerRadius: 5))
+        ZStack(alignment: .topLeading) {
+          // Borders
+            Rectangle()
+              .frame(height: 0.5)
+              .foregroundStyle(Color(hue: 0, saturation: 0, brightness: 1).opacity(0.1))
+            Rectangle()
+              .frame(width: 0.5)
+              .foregroundStyle(Color(hue: 0, saturation: 0, brightness: 1).opacity(0.1))
+          // Noise
+            Image("Noize")
+              .resizable(resizingMode: .tile)
+              .opacity(0.50)
+          }
+          .clipShape(RoundedRectangle(cornerRadius: 4)),
+        alignment: .topLeading
       )
     )
+//    .drawingGroup() // TODO: it make btn lighter
   }
 }
 
