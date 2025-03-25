@@ -22,7 +22,7 @@ struct DisplayBlickView: View {
       .overlay(
         ZStack(alignment: .top) {
           Rectangle()
-            .strokeBorder(Color(hue: 0, saturation: 0, brightness: 0.075), lineWidth: 2)
+            .strokeBorder(Color(hue: 0, saturation: 0, brightness: 0.075), lineWidth: 1)
           
           Rectangle()
             .frame(height: 0.5)
