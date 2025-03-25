@@ -6,9 +6,17 @@
 //
 
 import SwiftUI
-  
+
 struct EpisodeView: View {
   var episode: Episode
+  
+  private func textLabel(_ text: String,_ fontStyle: Font.TextStyle = .body, lines: Int = 1) -> some View {
+    Text(text)
+      .font(.system(fontStyle, design: .monospaced, weight: .light))
+      .foregroundStyle(.white.opacity(0.9))
+      .lineLimit(lines)
+  }
+  
   
   var body: some View {
     // MARK: Ep List
@@ -20,16 +28,11 @@ struct EpisodeView: View {
           .frame(width: 44, height: 44)
           .background(Color(.gray))
           .clipShape(RoundedRectangle(cornerRadius: 5))
-        Text(episode.title)
-          .lineLimit(2)
-          .font(.system(.body, design: .monospaced, weight: .bold))
-          .foregroundStyle(.white.opacity(0.9))
+        textLabel(episode.title, lines: 2)
       }
-      Text("\(episode.data) • \(episode.description)")
-        .lineLimit(3)
-        .font(.system(.caption, design: .monospaced, weight: .light))
-        .foregroundStyle(.white.opacity(0.9))
       
+      textLabel("\(episode.data) • \(episode.description)", .caption, lines: 3)
+  
       HStack {
         HStack(spacing: 16) {
           Image(systemName:"play.circle")
@@ -45,13 +48,11 @@ struct EpisodeView: View {
             .frame(width: 32, height: 32)
             .foregroundStyle(.white)
         }
-
+        
         Spacer()
-
+        
         HStack(spacing: 16) {
-          Text("\(episode.duration) left")
-            .font(.system(.caption, design: .monospaced, weight: .light))
-            .foregroundStyle(.white.opacity(0.9))
+          textLabel("\(episode.duration) left", .caption)
           Image(systemName:"play.circle")
             .resizable()
             .frame(width: 32, height: 32)
