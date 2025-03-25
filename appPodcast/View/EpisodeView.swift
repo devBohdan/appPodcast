@@ -1,5 +1,5 @@
 //
-//  EpListView.swift
+//  EpisodeView.swift
 //  appPodcast
 //
 //  Created by Bohdan Kompaniiets on 23.03.2025.
@@ -7,23 +7,25 @@
 
 import SwiftUI
   
-struct EpListView: View {
+struct EpisodeView: View {
+  var episode: Episode
+  
   var body: some View {
     // MARK: Ep List
     VStack(alignment: .leading, spacing: 8) {
       HStack(spacing: 8) {
-        Image("Podcast")
+        Image(episode.imageURL)
           .resizable()
           .aspectRatio(contentMode: .fill)
           .frame(width: 44, height: 44)
           .background(Color(.gray))
-          .clipShape(.rect(cornerRadius: 5))
-        Text("How To Achieve Financial & Location How To Achie How To")
+          .clipShape(RoundedRectangle(cornerRadius: 5))
+        Text(episode.title)
           .lineLimit(2)
           .font(.system(.body, design: .monospaced, weight: .bold))
           .foregroundStyle(.white.opacity(0.9))
       }
-      Text("12 apr, 2019 • Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia")
+      Text("\(episode.data) • \(episode.description)")
         .lineLimit(3)
         .font(.system(.caption, design: .monospaced, weight: .light))
         .foregroundStyle(.white.opacity(0.9))
@@ -46,8 +48,8 @@ struct EpListView: View {
 
         Spacer()
 
-        HStack(spacing: 8) {
-          Text("50 min left")
+        HStack(spacing: 16) {
+          Text("\(episode.duration) left")
             .font(.system(.caption, design: .monospaced, weight: .light))
             .foregroundStyle(.white.opacity(0.9))
           Image(systemName:"play.circle")
@@ -69,7 +71,7 @@ struct EpListView: View {
 
 
 #Preview {
-  EpListView()
+  EpisodeView(episode: Episode.sample)
   
   // MARK: Button Design
   Image("EpListView")

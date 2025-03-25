@@ -8,38 +8,35 @@
 import SwiftUI
 
 struct ContentView: View {
+  @State var episodes = Episode.samples
+  
   var body: some View {
     VStack {
       Spacer()
       VStack(spacing: 1) {
-        // MARK: List
+        // MARK: Episodes
         ScrollView {
-          VStack(spacing: 0){
-            EpListView()
-            EpListView()
-            EpListView()
-            EpListView()
-            EpListView()
-            EpListView()
-            EpListView() //7
-          }
+            LazyVStack {
+                ForEach(episodes) { episode in
+                    EpisodeView(episode: episode)
+                }
+            }
         }
         .overlay(DisplayBlickView())
         
         VStack(spacing: 2) {
+          // MARK: Mini Player
           VStack(spacing: 1) {
-            // MARK: Mini Progres Bar
             PlayerProgressBar()
             HStack(alignment: .center, spacing: 2) {  // TODO: alignment: .bottom?
-              // MARK: Mini Screen
               PlayerDisplayView()
-              // MARK: Mini Buttons
               PlayerButtonView()
               PlayerButtonView()
               PlayerButtonView()
                 .padding(.trailing, 2)
             }
           }
+          // MARK: TabView ?
           HStack(spacing: 2) {
             ButtonTabView()
             ButtonTabView()
