@@ -9,43 +9,56 @@
 import SwiftUI
 
 struct PlayerButtonView: View {
-  var body: some View {
-    
-    // MARK: Button
-    Button(action: {}) {
-      //          Image(systemName: "heart.fill")
-      //          Text("Text")
-    }
-    
-    // MARK: Button / Inside
-    .labelStyle(.iconOnly)
-    .padding(5)  // Padding for ICON
-    .frame(minWidth: 32, minHeight: 32)
-    .background(
-      RoundedRectangle(cornerRadius: 9999, style: .circular)
+  
+  private let insideBorderGradient = RadialGradient(
+    gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.7),
+                                Color(hue: 0, saturation: 0, brightness: 0.5),
+                                Color(hue: 0, saturation: 0, brightness: 0)]),
+    center: UnitPoint(x: 0.25, y: 0),
+    startRadius: 0,
+    endRadius: 25
+  )
+  private let outsideBorderGradient = RadialGradient(
+    gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.5),
+                                Color(hue: 0, saturation: 0, brightness: 0.5),
+                                Color(hue: 0, saturation: 0, brightness: 0)]),
+    center: UnitPoint(x: 0, y: 0),
+    startRadius: 0,
+    endRadius: 80
+  )
+  
+  
+  private func buttonBG(_ borderGradient: RadialGradient ,corner: CGFloat) -> some View {
+    RoundedRectangle(cornerRadius: corner, style: .circular)
       .fill(
         Color(hue: 0, saturation: 0, brightness: 0.2)
         // Inner shadow
           .shadow(.inner(color: .white.opacity(0.2), radius: 0.5, x: 0.5, y: 1))
           .shadow(.inner(color: .black.opacity(0.8), radius: 1, x: 0, y: 0))
       )
-      // Blick inside
-        .strokeBorder(
-          RadialGradient(gradient: Gradient(colors: [.white.opacity(0.5),
-                                                     .white.opacity(0.5),
-                                                     .black.opacity(0.5)]),
-                         center: UnitPoint(x: 0.25, y: 0),
-                         startRadius: 0,
-                         endRadius: 25),
-          lineWidth: 0.5)
-        .overlay(
-          Image("Noize")
-            .resizable(resizingMode: .tile)
-            .opacity(0.50)
-            .clipShape(RoundedRectangle(cornerRadius: 9999))
-        )
-    )
-    // Black shadow
+    // Glare
+      .strokeBorder(borderGradient ,lineWidth: 0.5)
+    
+      .overlay(
+        Image("Noize")
+          .resizable(resizingMode: .tile)
+          .opacity(0.50)
+          .clipShape(RoundedRectangle(cornerRadius: corner))
+      )
+  }
+  
+  var body: some View {
+    // MARK: Button
+    Button(action: {}) {
+      // Text/Icon
+    }
+    // MARK: Inside button
+    .padding(5)
+    .frame(minWidth: 32, minHeight: 32)
+    .background(buttonBG(insideBorderGradient, corner: 999))
+    // MARK: Shadows
+    // TODO: ZStack all .backgrounds
+    // Black
     .background(  // 0
       RoundedRectangle(cornerRadius: 999, style: .circular)
         .fill(Color(.black))
@@ -86,7 +99,7 @@ struct PlayerButtonView: View {
         .blur(radius: 4, opaque: false)
         .blendMode(.overlay)
     )
-    // White shadow
+    // White
     .background( //5
       RoundedRectangle(cornerRadius: 999, style: .circular)
         .fill(Color(.white))
@@ -103,51 +116,22 @@ struct PlayerButtonView: View {
         .blur(radius: 1, opaque: false)
         .blendMode(.plusLighter)
     )
-    
-    
-    // MARK: Button / Outside
-    .padding(14)  // Padding for inside btn
+    // MARK: Outside button
+    .padding(14)
     .frame(minWidth: 60, minHeight: 60)
-    .background(
-      RoundedRectangle(cornerRadius: 4, style: .circular)
-      .fill(Color(hue: 0, saturation: 0, brightness: 0.2))
-      // Blick
-      .strokeBorder(
-        RadialGradient(gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.4),
-                                                   Color(hue: 0, saturation: 0, brightness: 0.1)]),
-                       center: UnitPoint(x: 0.25, y: 0),
-                       startRadius: 0,
-                       endRadius: 75),
-        lineWidth: 0.5
-      )
-      .overlay(
-        ZStack(alignment: .topLeading) {
-          // Borders
-            Rectangle()
-              .frame(height: 0.5)
-              .foregroundStyle(Color(hue: 0, saturation: 0, brightness: 1).opacity(0.1))
-            Rectangle()
-              .frame(width: 0.5)
-              .foregroundStyle(Color(hue: 0, saturation: 0, brightness: 1).opacity(0.1))
-          // Noise
-            Image("Noize")
-              .resizable(resizingMode: .tile)
-              .opacity(0.50)
-          }
-          .clipShape(RoundedRectangle(cornerRadius: 4)),
-        alignment: .topLeading
-      )
-    )
-//    .drawingGroup() // TODO: it make btn lighter
+    .background(buttonBG(outsideBorderGradient, corner: 4))
+    // .drawingGroup() // TODO: it make btn lighter
   }
 }
 
 
 #Preview {
-  PlayerButtonView()
-  
-  // MARK: Button Design
-  Image("00")
-    .resizable()
-    .frame(width: 60, height: 60, alignment: .leading)
+  VStack {
+    PlayerButtonView()
+    // MARK: Button Design
+    Image("00")
+      .resizable()
+      .frame(width: 60, height: 60, alignment: .leading)
+  }
+  .scaleEffect(6)
 }

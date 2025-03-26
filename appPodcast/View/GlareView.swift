@@ -1,5 +1,5 @@
 //
-//  DisplayBlickView.swift
+//  GlareView.swift
 //  appPodcast
 //
 //  Created by Bohdan Kompaniiets on 24.03.2025.
@@ -11,7 +11,7 @@ import SwiftUI
 struct GlareView: View {
   var body: some View {
     
-    // MARK: Display Blick
+    // MARK: Display Glare
     Rectangle()
       .foregroundStyle(
         LinearGradient(

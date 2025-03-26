@@ -32,7 +32,7 @@ struct PlayerDisplayView: View {
     }
     .padding(9)
     // Blick
-    .overlay(DisplayBlickView())
+    .overlay(GlareView())
   }
 }
 

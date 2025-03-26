@@ -29,7 +29,7 @@ struct PlayerProgressBar: View {
       ZStack(alignment: .leading) {
         Rectangle().frame(width: 100).foregroundStyle(.white.opacity(0.1))
         // Blick
-        DisplayBlickView()
+        GlareView()
       }
     )
     
