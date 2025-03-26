@@ -8,16 +8,20 @@
 import SwiftUI
 
 
-struct DisplayBlickView: View {
+struct GlareView: View {
   var body: some View {
     
     // MARK: Display Blick
     Rectangle()
       .foregroundStyle(
-        LinearGradient(gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 1),
-                                                   Color(hue: 0, saturation: 0, brightness: 0.5)]),
-                       startPoint: UnitPoint(x: 0.25, y: 0),
-                       endPoint: UnitPoint(x: 0.75, y: 1)).opacity(0.1)
+        LinearGradient(
+          gradient: Gradient(
+            colors: [Color(hue: 0, saturation: 0, brightness: 1),
+                     Color(hue: 0, saturation: 0, brightness: 0.5)]
+          ),
+          startPoint: UnitPoint(x: 0.25, y: 0),
+          endPoint: UnitPoint(x: 0.75, y: 1)
+        ).opacity(0.1)
       )
       .overlay(
         ZStack(alignment: .top) {
@@ -35,6 +39,6 @@ struct DisplayBlickView: View {
 
 
 #Preview {
-  DisplayBlickView()
+  GlareView()
     .frame(width: 200, height: 100)
 }
