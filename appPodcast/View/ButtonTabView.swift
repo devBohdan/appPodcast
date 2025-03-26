@@ -26,11 +26,12 @@ struct ButtonTabView: View {
     // Size
     .frame(height: 62, alignment: .center)
     
+    
     .background(
       Rectangle()
       // Color
         .fill(
-          LinearGradient(gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.2),
+          LinearGradient(gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.1),
                                                      Color(hue: 0, saturation: 0, brightness: 0.4),
                                                      Color(hue: 0, saturation: 0, brightness: 0.2)]),
                          startPoint: .top,
@@ -51,6 +52,7 @@ struct ButtonTabView: View {
                                endPoint: UnitPoint(x: 0.7, y: 0.5))
               )
               .offset(y: 3)
+            
             // Left Border
             Rectangle()
               .frame(width: 1)

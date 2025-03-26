@@ -21,10 +21,11 @@ struct PlayerButtonView: View {
   private let outsideBorderGradient = RadialGradient(
     gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.5),
                                 Color(hue: 0, saturation: 0, brightness: 0.5),
-                                Color(hue: 0, saturation: 0, brightness: 0)]),
+                                Color(hue: 0, saturation: 0, brightness: 0.15),
+                                Color(hue: 0, saturation: 0, brightness: 0.15)]),
     center: UnitPoint(x: 0, y: 0),
     startRadius: 0,
-    endRadius: 80
+    endRadius: 100
   )
   
   

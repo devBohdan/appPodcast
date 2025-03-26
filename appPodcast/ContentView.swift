@@ -24,11 +24,11 @@ struct ContentView: View {
         }
         .overlay(GlareView())
         
-        VStack(spacing: 2) {
+        VStack(spacing: 3) {
           // MARK: Mini Player
           VStack(spacing: 1) {
             PlayerProgressBar()
-            HStack(alignment: .center, spacing: 2) {  // TODO: alignment: .bottom?
+            HStack(alignment: .bottom, spacing: 3) {  // TODO: alignment: .bottom?
               PlayerDisplayView()
               PlayerButtonView()
               PlayerButtonView()
@@ -37,7 +37,7 @@ struct ContentView: View {
             }
           }
           // MARK: TabView ?
-          HStack(spacing: 2) {
+          HStack(spacing: 3) {
             ButtonTabView(label:"DOWNLOADS")
             ButtonTabView(label:"LIBRARY")
             ButtonTabView(label:"SEARCH")
