@@ -22,7 +22,7 @@ struct ContentView: View {
                 }
             }
         }
-        .overlay(DisplayBlickView())
+        .overlay(GlareView())
         
         VStack(spacing: 2) {
           // MARK: Mini Player
@@ -38,10 +38,10 @@ struct ContentView: View {
           }
           // MARK: TabView ?
           HStack(spacing: 2) {
-            ButtonTabView()
-            ButtonTabView()
-            ButtonTabView()
-            ButtonTabView()
+            ButtonTabView(label:"DOWNLOADS")
+            ButtonTabView(label:"LIBRARY")
+            ButtonTabView(label:"SEARCH")
+            ButtonTabView(label:"PROFILE")
           }
         }
       }
