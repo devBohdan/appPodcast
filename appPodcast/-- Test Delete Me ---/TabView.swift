@@ -18,17 +18,17 @@ struct TabBarView: View {
       
       ContentView()
         .tabItem {
-          Label("Order", systemImage: "square.and.pencil")
+          Label("Order 1", systemImage: "square.and.pencil")
         }
       
       ContentView()
         .tabItem {
-          Label("Order", systemImage: "square.and.pencil")
+          Label("Order 2", systemImage: "square.and.pencil")
         }
       
       ContentView()
         .tabItem {
-          Label("Order", systemImage: "square.and.pencil")
+          Label("Order 3", systemImage: "square.and.pencil")
         }
     }
     .ignoresSafeArea()

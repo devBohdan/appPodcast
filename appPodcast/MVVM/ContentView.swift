@@ -28,7 +28,7 @@ struct ContentView: View {
           // MARK: Mini Player
           VStack(spacing: 1) {
             PlayerProgressBar()
-            HStack(alignment: .bottom, spacing: 3) {  // TODO: alignment: .bottom?
+            HStack(alignment: .bottom, spacing: 3) {
               PlayerDisplayView()
               PlayerButtonView()
               PlayerButtonView()
