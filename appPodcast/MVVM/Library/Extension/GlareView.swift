@@ -8,37 +8,43 @@
 import SwiftUI
 
 
-struct GlareView: View {
-  var body: some View {
-    
-    // MARK: Display Glare
-    Rectangle()
-      .foregroundStyle(
-        LinearGradient(
-          gradient: Gradient(
-            colors: [Color(hue: 0, saturation: 0, brightness: 1),
-                     Color(hue: 0, saturation: 0, brightness: 0.5)]
-          ),
-          startPoint: UnitPoint(x: 0.25, y: 0),
-          endPoint: UnitPoint(x: 0.75, y: 1)
-        ).opacity(0.1)
-      )
+struct GlareView: ViewModifier {
+  func body(content: Content) -> some View {
+    content
       .overlay(
         ZStack(alignment: .top) {
-          Rectangle()
-            .strokeBorder(Color(hue: 0, saturation: 0, brightness: 0.075), lineWidth: 1)
-          
+          // Border
           Rectangle()
             .frame(height: 0.5)
             .foregroundStyle(Color(hue: 0, saturation: 0, brightness: 0.4))
-        }
+          // Glare
+          Rectangle()
+            .foregroundStyle(
+              LinearGradient(
+                gradient: Gradient(
+                  colors: [Color(hue: 0, saturation: 0, brightness: 1),
+                           Color(hue: 0, saturation: 0, brightness: 0.5)]
+                ),
+                startPoint: UnitPoint(x: 0.25, y: 0),
+                endPoint: UnitPoint(x: 0.75, y: 1)
+              ).opacity(0.1)
+            )
+        }.allowsHitTesting(false)
       )
-      .allowsHitTesting(false)
+  }
+}
+
+extension View {
+  func withGlare() -> some View {
+    modifier(GlareView())
   }
 }
 
 
+
 #Preview {
-  GlareView()
-    .frame(width: 200, height: 100)
+  Rectangle()
+    .foregroundStyle(.black)
+    .frame(width: 200, height: 400)
+    .withGlare()
 }

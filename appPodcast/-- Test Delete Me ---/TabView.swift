@@ -8,35 +8,36 @@
 
 import SwiftUI
 
+struct TextLabel2: View {
+  var text: String
+  var fontStyle: Font.TextStyle = .body
+  var lines: Int? = nil
+
+  var body: some View {
+    Text(text)
+      .font(.system(fontStyle, design: .monospaced))  // TODO: My own styles?
+      .foregroundStyle(.white.opacity(0.9))
+      .lineLimit(lines)
+  }
+}
+
+/*_ fontStyle: Font.TextStyle = .body,*/
+//      .font(.system(fontStyle, design: .monospaced))  // TODO: My own styles?
+
 struct TabBarView: View {
+
   var body: some View {
     TabView {
-      ContentView()
+      TextLabel2(text: "0")
         .tabItem {
           Label("Menu", systemImage: "list.dash")
         }
       
-      ContentView()
+      TextLabel2(text: "1")
         .tabItem {
           Label("Order 1", systemImage: "square.and.pencil")
-        }
-      
-      ContentView()
-        .tabItem {
-          Label("Order 2", systemImage: "square.and.pencil")
-        }
-      
-      ContentView()
-        .tabItem {
-          Label("Order 3", systemImage: "square.and.pencil")
         }
     }
     .ignoresSafeArea()
   }
 }
-
-#Preview {
-  TabBarView()
-}
-
-

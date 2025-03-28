@@ -26,13 +26,10 @@ struct PlayerProgressBar: View {
     
     // MARK: Progress
     .overlay(
-      ZStack(alignment: .leading) {
-        Rectangle().frame(width: 100).foregroundStyle(.white.opacity(0.1))
-        // Blick
-        GlareView()
-      }
+      Rectangle().frame(width: 100).foregroundStyle(.white.opacity(0.1)),
+      alignment: .leading
     )
-    
+    .withGlare()
   }
 }
 

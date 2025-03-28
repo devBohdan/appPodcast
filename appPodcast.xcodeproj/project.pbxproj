@@ -6,13 +6,31 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		87C423812D96D9A6004D6DE2 /* TODO.swift in Sources */ = {isa = PBXBuildFile; fileRef = 87C423802D96D9A2004D6DE2 /* TODO.swift */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		873D68802D70B70B00EE2CC3 /* appPodcast.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = appPodcast.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		87C423802D96D9A2004D6DE2 /* TODO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TODO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
+
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		8760CC2F2D960BC700B07BD7 /* Exceptions for "appPodcast" folder in "appPodcast" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				Info.plist,
+			);
+			target = 873D687F2D70B70B00EE2CC3 /* appPodcast */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		873D68822D70B70B00EE2CC3 /* appPodcast */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				8760CC2F2D960BC700B07BD7 /* Exceptions for "appPodcast" folder in "appPodcast" target */,
+			);
 			path = appPodcast;
 			sourceTree = "<group>";
 		};
@@ -32,6 +50,7 @@
 		873D68772D70B70B00EE2CC3 = {
 			isa = PBXGroup;
 			children = (
+				87C423802D96D9A2004D6DE2 /* TODO.swift */,
 				873D68822D70B70B00EE2CC3 /* appPodcast */,
 				873D68812D70B70B00EE2CC3 /* Products */,
 			);
@@ -119,6 +138,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				87C423812D96D9A6004D6DE2 /* TODO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -252,6 +272,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = appPodcast/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -291,6 +312,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = appPodcast/Info.plist;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

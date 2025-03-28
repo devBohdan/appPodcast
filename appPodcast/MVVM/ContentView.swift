@@ -21,9 +21,8 @@ struct ContentView: View {
                     EpisodeView(episode: episode)
                 }
             }
-        }
-        .overlay(GlareView())
-        
+        }.withGlare()
+
         VStack(spacing: 3) {
           // MARK: Mini Player
           VStack(spacing: 1) {
