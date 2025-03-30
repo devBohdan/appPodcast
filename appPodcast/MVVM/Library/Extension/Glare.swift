@@ -1,5 +1,5 @@
 //
-//  GlareView.swift
+//  Glare.swift
 //  appPodcast
 //
 //  Created by Bohdan Kompaniiets on 24.03.2025.
@@ -8,7 +8,7 @@
 import SwiftUI
 
 
-struct GlareView: ViewModifier {
+struct Glare: ViewModifier {
   func body(content: Content) -> some View {
     content
       .overlay(
@@ -36,7 +36,7 @@ struct GlareView: ViewModifier {
 
 extension View {
   func withGlare() -> some View {
-    modifier(GlareView())
+    modifier(Glare())
   }
 }
 
