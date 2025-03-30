@@ -18,7 +18,7 @@ struct PlayerProgressBar: View {
       Text("41:05 left")
         .frame(maxWidth: .infinity, alignment: .trailing)
     }
-    .font(.system(.footnote, design: .monospaced))
+    .font(.miniPlayer)
     .foregroundStyle(.white.opacity(0.9))
     
     .padding(.horizontal, 10)

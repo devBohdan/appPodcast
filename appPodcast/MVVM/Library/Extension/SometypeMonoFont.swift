@@ -7,20 +7,16 @@
 
 import SwiftUI
 
-struct SometypeMonoFont: View {
-  var body  : some View { Text("Hello, World!") }
-}
-
 
 enum SometypeMono: String {
-  case regular = "SometypeMono-Regular"
-  case medium = "SometypeMono-Medium"
-  case bold = "SometypeMono-Bold"
+  case bold     = "SometypeMono-Bold"
+  case medium   = "SometypeMono-Medium"
+  case regular  = "SometypeMono-Regular"
     
   init(weight: Font.Weight) {
     switch weight {
-    case .medium: self = .medium
     case .bold:   self = .bold
+    case .medium: self = .medium
     default:      self = .regular
     }
   }
@@ -28,13 +24,17 @@ enum SometypeMono: String {
 
 
 extension Font {
-
   static func customFont(weight: Font.Weight = .regular, size: CGFloat = 16) -> Font {
     Font.custom(SometypeMono(weight: weight).rawValue, size: size)
   }
   
   static var displayTitle: Font { Font.custom(SometypeMono.bold.rawValue, size: 16) }
-  static var displayBody: Font { Font.custom(SometypeMono.regular.rawValue, size: 16) }
+  static var displayBody: Font { Font.custom(SometypeMono.regular.rawValue, size: 14) }
+  static var miniPlayer: Font { Font.custom(SometypeMono.regular.rawValue, size: 14) }
+  
+  static var button: Font { Font.custom(SometypeMono.regular.rawValue, size: 14) }
+
+
 }
 
 

@@ -20,7 +20,7 @@ struct ButtonTabView: View {
       }
     }
     // Font
-    .font(.system(.footnote, design: .monospaced))
+    .font(.button)
     .foregroundStyle(.white.opacity(0.9))
     
     // Size

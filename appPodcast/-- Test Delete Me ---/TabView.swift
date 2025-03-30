@@ -21,8 +21,8 @@ struct TextLabel2: View {
   }
 }
 
-/*_ fontStyle: Font.TextStyle = .body,*/
-//      .font(.system(fontStyle, design: .monospaced))  // TODO: My own styles?
+/*_ font: Font.TextStyle = .body,*/
+//      .font(.system(font, design: .monospaced))  // TODO: My own styles?
 
 struct TabBarView: View {
 

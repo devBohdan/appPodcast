@@ -22,9 +22,9 @@ struct PlayerDisplayView: View {
       VStack(alignment: .leading) {
         Text("Why Should We Care About Privacy?")
           .lineLimit(2)
-          .font(.system(.footnote, design: .monospaced))
+          .font(.miniPlayer)
         //Text("Artist")
-        //  .font(.system(.footnote, design: .monospaced))
+        //  .font(.miniPlayer)
       }
       .foregroundStyle(.white.opacity(0.9))
       

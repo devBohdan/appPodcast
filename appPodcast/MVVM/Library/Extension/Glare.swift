@@ -34,12 +34,12 @@ struct Glare: ViewModifier {
   }
 }
 
+
 extension View {
   func withGlare() -> some View {
     modifier(Glare())
   }
 }
-
 
 
 #Preview {

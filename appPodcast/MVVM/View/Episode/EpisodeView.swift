@@ -28,9 +28,9 @@ struct EpisodeView: View {
     VStack(alignment: .leading, spacing: 8) {
       HStack(spacing: 8) {
         epImage
-        TextLabel(text: episode.title, fontStyle: .headline, lines: 2)
+        TextLabel(text: episode.title, font: .displayTitle, lines: 2)
       }
-      TextLabel(text: "\(episode.data) • \(episode.description)", fontStyle: .caption, lines: 3)
+      TextLabel(text: "\(episode.data) • \(episode.description)", font: .displayBody, lines: 3)
       HStack {
         HStack(spacing: 16) {
           EpStatus(icon:"play.circle")
@@ -39,7 +39,7 @@ struct EpisodeView: View {
         }
         Spacer()
         HStack(spacing: 16) {
-          TextLabel(text: "\(episode.duration) left", fontStyle: .caption)
+          TextLabel(text: "\(episode.duration) left", font: .caption)
           EpStatus(icon:"play.circle") // TODO: Button
         }
       }
@@ -58,14 +58,14 @@ struct EpisodeView: View {
 
 
 // MARK: Views
-struct TextLabel: View {
+struct TextLabel: View { // TODO: DELETE
   var text: String
-  var fontStyle: Font.TextStyle = .body
+  var font: Font = .displayBody
   var lines: Int? = nil
   
   var body: some View {
     Text(text)
-      .font(.system(fontStyle, design: .monospaced))  // TODO: My own styles?
+      .font(font)
       .foregroundStyle(.white.opacity(0.9))
       .lineLimit(lines)
   }
