@@ -40,7 +40,7 @@ struct ContentView: View {
             ButtonTabView(label:"DOWNLOADS")
             ButtonTabView(label:"LIBRARY")
             ButtonTabView(label:"SEARCH")
-            ButtonTabView(label:"PROFILE")
+            ButtonTabView(label:"SETTINGS")
           }
         }
       }
