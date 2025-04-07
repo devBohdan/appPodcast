@@ -15,17 +15,14 @@ struct TextLabel2: View {
 
   var body: some View {
     Text(text)
-      .font(.system(fontStyle, design: .monospaced))  // TODO: My own styles?
+      .font(.system(fontStyle, design: .monospaced))
       .foregroundStyle(.white.opacity(0.9))
       .lineLimit(lines)
   }
 }
 
-/*_ font: Font.TextStyle = .body,*/
-//      .font(.system(font, design: .monospaced))  // TODO: My own styles?
 
 struct TabBarView: View {
-
   var body: some View {
     TabView {
       TextLabel2(text: "0")
@@ -35,9 +32,15 @@ struct TabBarView: View {
       
       TextLabel2(text: "1")
         .tabItem {
-          Label("Order 1", systemImage: "square.and.pencil")
+          ButtonTabView(label:"LIBRARY")
         }
     }
+    .tabViewStyle(.page)
     .ignoresSafeArea()
   }
+}
+
+
+#Preview {
+  TabBarView()
 }
