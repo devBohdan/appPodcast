@@ -7,32 +7,31 @@
 
 import SwiftUI
 
-//struct CustomTabViewStyle: TabViewStyle {
-//  static func _makeView<SelectionValue>(value: _GraphValue<_TabViewValue<CustomTabViewStyle, SelectionValue>>, inputs: _ViewInputs) -> _ViewOutputs where SelectionValue : Hashable {
-//    <#code#>
-//  }
-//  
-//  static func _makeViewList<SelectionValue>(value: _GraphValue<_TabViewValue<CustomTabViewStyle, SelectionValue>>, inputs: _ViewListInputs) -> _ViewListOutputs where SelectionValue : Hashable {
-//    <#code#>
-//  }
-//}
+
 
 
 struct CustomTabView: View {
+  
+  @State private var selection: String = "home"
+  
   var body: some View {
-    TabView {
-      Text("0")
+    TabView (selection: $selection) {
+      Color.red
         .tabItem {
-          Label("Menu", systemImage: "list.dash")
+          Image(systemName: "house")
+          Text("1")
         }
-      
-      Text("2")
+      Color.blue
         .tabItem {
-          ButtonTabView(label:"LIBRARY")
+          Image(systemName: "heart")
+          Text("2")
+        }
+      Color.yellow
+        .tabItem {
+          Image(systemName: "person")
+          Text("3")
         }
     }
-    .tabViewStyle(.page)
-    .ignoresSafeArea()
   }
 }
 
