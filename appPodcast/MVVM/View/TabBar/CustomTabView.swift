@@ -1,11 +1,24 @@
 //
-//  ButtonTabView.swift
+//  CustomTabView.swift
 //  appPodcast
 //
-//  Created by Bohdan Kompaniiets on 21.03.2025.
+//  Created by Bohdan Kompaniiets on 07.04.2025.
 //
 
 import SwiftUI
+
+struct CustomTabView: View {
+  var tabs = ["DOWNLOADS", "LIBRARY", "SEARCH", "PROFILE"]
+  
+  var body : some View {
+    HStack(spacing: 2) {
+      ForEach(tabs, id: \.self) { tab in
+        ButtonTabView(label: tab)
+      }
+    }
+    
+  }
+}
 
 
 struct ButtonTabView: View {
@@ -24,9 +37,8 @@ struct ButtonTabView: View {
     .foregroundStyle(.white.opacity(0.9))
     
     // Size
-    .frame(height: 62, alignment: .center)
-    
-    
+    .frame(height: 44, alignment: .bottom)
+    .offset(y: -5)
     .background(
       Rectangle()
       // Color
@@ -51,7 +63,7 @@ struct ButtonTabView: View {
                                startPoint: .leading,
                                endPoint: UnitPoint(x: 0.7, y: 0.5))
               )
-              .offset(y: 3)
+              .offset(y: 4)
             
             // Left Border
             Rectangle()
@@ -64,20 +76,14 @@ struct ButtonTabView: View {
               .resizable(resizingMode: .tile)
               .opacity(0.5)
           }
-        )
+        ).ignoresSafeArea(edges: .bottom)
     )
   }
 }
 
 
 #Preview {
-  HStack(spacing: 2) {
-    ButtonTabView(label:"DOWNLOADS")
-    ButtonTabView(label:"LIBRARY")
-    ButtonTabView(label:"SEARCH")
-    ButtonTabView(label:"PROFILE")
-  }
-  
+  Spacer()
   // MARK: ButtonTabView Design
   HStack(spacing: 2) {
     Image("Tab")
@@ -93,4 +99,5 @@ struct ButtonTabView: View {
       .resizable()
       .frame(width: 99, height: 62, alignment: .leading)
   }
+  CustomTabView()
 }

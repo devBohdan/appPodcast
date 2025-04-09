@@ -35,13 +35,8 @@ struct ContentView: View {
                 .padding(.trailing, 2)
             }
           }
-          // MARK: TabView ?
-          HStack(spacing: 3) {
-            ButtonTabView(label:"DOWNLOADS")
-            ButtonTabView(label:"LIBRARY")
-            ButtonTabView(label:"SEARCH")
-            ButtonTabView(label:"SETTINGS")
-          }
+          // MARK: TabView
+          CustomTabView()
         }
       }
     }

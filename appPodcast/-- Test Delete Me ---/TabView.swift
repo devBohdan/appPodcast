@@ -8,39 +8,32 @@
 
 import SwiftUI
 
-struct TextLabel2: View {
-  var text: String
-  var fontStyle: Font.TextStyle = .body
-  var lines: Int? = nil
-
+struct CustomTabViewTEST: View {
+  
+  @State private var selection: String = "home"
+  
   var body: some View {
-    Text(text)
-      .font(.system(fontStyle, design: .monospaced))
-      .foregroundStyle(.white.opacity(0.9))
-      .lineLimit(lines)
-  }
-}
-
-
-struct TabBarView: View {
-  var body: some View {
-    TabView {
-      TextLabel2(text: "0")
+    TabView (selection: $selection) {
+      Color.red
         .tabItem {
-          Label("Menu", systemImage: "list.dash")
+          Image(systemName: "house")
+          Text("1")
         }
-      
-      TextLabel2(text: "1")
+      Color.blue
         .tabItem {
-          ButtonTabView(label:"LIBRARY")
+          Image(systemName: "heart")
+          Text("2")
+        }
+      Color.yellow
+        .tabItem {
+          Image(systemName: "person")
+          Text("3")
         }
     }
-    .tabViewStyle(.page)
-    .ignoresSafeArea()
   }
 }
 
 
 #Preview {
-  TabBarView()
+    CustomTabViewTEST()
 }
