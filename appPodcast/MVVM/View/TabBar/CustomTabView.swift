@@ -8,33 +8,31 @@
 import SwiftUI
 
 struct CustomTabView: View {
-  var tabs = ["DOWNLOADS", "LIBRARY", "SEARCH", "PROFILE"]
+  let tabs: [TabBarItem]
+  @Binding var currentTab: TabBarItem
   
   var body : some View {
     HStack(spacing: 2) {
       ForEach(tabs, id: \.self) { tab in
-        ButtonTabView(label: tab)
+        tabView(tab: tab)
       }
     }
-    
   }
 }
 
-
-struct ButtonTabView: View {
-  let label: String
-  
-  var body: some View {
-    Button(action: {}) {
+extension CustomTabView {
+  private func tabView(tab: TabBarItem) -> some View {
+    Button(action: {currentTab = tab}) {
       HStack {
         Spacer()
-        Text(label)
+        Text(tab.title)
         Spacer()
       }
     }
     // Font
     .font(.button)
-    .foregroundStyle(.white.opacity(0.9))
+    // TODO: Более разный вид
+    .foregroundStyle(currentTab == tab ? .white.opacity(0.5) : .white.opacity(0.9))
     
     // Size
     .frame(height: 44, alignment: .bottom)
@@ -82,22 +80,31 @@ struct ButtonTabView: View {
 }
 
 
+struct TabBarItem: Hashable {
+  let title: String
+}
+
 #Preview {
   Spacer()
-  // MARK: ButtonTabView Design
-  HStack(spacing: 2) {
-    Image("Tab")
-      .resizable()
-      .frame(width: 99, height: 62, alignment: .leading)
-    Image("Tab")
-      .resizable()
-      .frame(width: 99, height: 62, alignment: .leading)
-    Image("Tab")
-      .resizable()
-      .frame(width: 99, height: 62, alignment: .leading)
-    Image("Tab")
-      .resizable()
-      .frame(width: 99, height: 62, alignment: .leading)
-  }
-  CustomTabView()
+  
+  let tabs: [TabBarItem] = [TabBarItem(title:"DOWNLOADS"),
+                            TabBarItem(title:"LIBRARY"),
+                            TabBarItem(title:"SEARCH"),
+                            TabBarItem(title:"PROFILE")]
+  CustomTabView(tabs: tabs, currentTab: .constant(tabs.first ?? TabBarItem(title: "LIBRARY")))
 }
+//  // MARK: ButtonTabView Design
+//  HStack(spacing: 2) {
+//    Image("Tab")
+//      .resizable()
+//      .frame(width: 99, height: 62, alignment: .leading)
+//    Image("Tab")
+//      .resizable()
+//      .frame(width: 99, height: 62, alignment: .leading)
+//    Image("Tab")
+//      .resizable()
+//      .frame(width: 99, height: 62, alignment: .leading)
+//    Image("Tab")
+//      .resizable()
+//      .frame(width: 99, height: 62, alignment: .leading)
+//  }

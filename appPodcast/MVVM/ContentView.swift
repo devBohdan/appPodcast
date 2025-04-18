@@ -36,7 +36,12 @@ struct ContentView: View {
             }
           }
           // MARK: TabView
-          CustomTabView()
+          let tabs: [TabBarItem] = [TabBarItem(title:"DOWNLOADS"),
+                                    TabBarItem(title:"LIBRARY"),
+                                    TabBarItem(title:"SEARCH"),
+                                    TabBarItem(title:"PROFILE")]
+          CustomTabView(tabs: tabs,
+                        currentTab: .constant(tabs.first ?? TabBarItem(title: "LIBRARY")))
         }
       }
     }
