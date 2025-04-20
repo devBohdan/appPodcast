@@ -8,27 +8,36 @@
 import SwiftUI
 
 // TODO: TabStyle
-//
-//struct CustomTabContainerView<Content: View>: View {
-//  @Binding var tabs = ["DOWNLOADS", "LIBRARY", "SEARCH", "PROFILE"]
-//
-//  let content: Content
-//  
-//  init(selection: Binding<Int>, @ViewBuilder content: () -> Content) {
-//    //self.selection = selection
-//    self.content = content()
-//  }
-//  
-//    var body: some View {
-//      VStack(spacing: 0) {
-//        ZStack {
-//          content
-//        }
-//        CustomTabView()
-//      }
-//}
-//
-//#Preview {
-//    CustomTabContainerView()
-//}
-//
+
+struct CustomTabContainerView<Content: View>: View {
+  
+  @Binding var currentTab: TabBarItem
+  let content: Content
+  @State private var tabs: [TabBarItem] = []
+  
+  init(currentTab: Binding<TabBarItem>, @ViewBuilder content: () -> Content) {
+    self._currentTab = currentTab
+    self.content = content()
+  }
+  
+  var body: some View {
+    VStack(spacing: 0) {
+      ZStack {
+        content
+      }
+      CustomTabView(tabs: tabs , currentTab: $currentTab)
+    }
+  }
+}
+
+#Preview {
+  let tabs: [TabBarItem] = [TabBarItem(title:"DOWNLOADS"),
+                            TabBarItem(title:"LIBRARY"),
+                            TabBarItem(title:"SEARCH"),
+                            TabBarItem(title:"PROFILE")]
+  
+  CustomTabContainerView(currentTab: .constant(tabs.first!)) {
+    Color.red
+  }
+}
+
