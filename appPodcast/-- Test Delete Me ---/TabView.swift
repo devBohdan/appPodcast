@@ -9,10 +9,25 @@
 import SwiftUI
 
 struct CustomTabViewTEST: View {
-  
   @State private var selection: String = "home"
+  @State private var currentSelcetion: TabBarItem = TabBarItem(title:"LIBRARY")
   
   var body: some View {
+    CustomTabContainerView(currentTab: $currentSelcetion) {
+      Color.blue
+        .tabBarItem(tab: TabBarItem(title:"DOWNLOADS"), currentTab: $currentSelcetion)
+      Color.red
+        .tabBarItem(tab: TabBarItem(title:"LIBRARY"), currentTab: $currentSelcetion)
+      Color.green
+        .tabBarItem(tab: TabBarItem(title:"SEARCH"), currentTab: $currentSelcetion)
+      Color.gray
+        .tabBarItem(tab: TabBarItem(title:"PROFILE"), currentTab: $currentSelcetion)
+    }
+  }
+}
+
+extension CustomTabViewTEST  {
+  private var  defaultTabView: some View {
     TabView (selection: $selection) {
       Color.red
         .tabItem {
@@ -35,5 +50,10 @@ struct CustomTabViewTEST: View {
 
 
 #Preview {
+  let tabs: [TabBarItem] = [TabBarItem(title:"DOWNLOADS"),
+                            TabBarItem(title:"LIBRARY"),
+                            TabBarItem(title:"SEARCH"),
+                            TabBarItem(title:"PROFILE")]
+  
     CustomTabViewTEST()
 }
