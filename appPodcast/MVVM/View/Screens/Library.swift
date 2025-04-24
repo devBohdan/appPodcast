@@ -1,13 +1,15 @@
 //
-//  ContentView.swift
+//  Library.swift
 //  appPodcast
 //
-//  Created by Bohdan Kompaniiets on 27.02.2025.
+//  Created by Bohdan Kompaniiets on 24.04.2025.
 //
 
+import Foundation
 import SwiftUI
 
-struct ContentView: View {
+
+struct Library: View {
   @State var episodes = Episode.samples
   
   var body: some View {
@@ -35,13 +37,6 @@ struct ContentView: View {
                 .padding(.trailing, 2)
             }
           }
-          // MARK: TabView
-          let tabs: [TabBarItem] = [TabBarItem(title:"DOWNLOADS"),
-                                    TabBarItem(title:"LIBRARY"),
-                                    TabBarItem(title:"SEARCH"),
-                                    TabBarItem(title:"PROFILE")]
-          CustomTabView(tabs: tabs,
-                        currentTab: .constant(tabs.first ?? TabBarItem(title: "LIBRARY")))
         }
       }
     }
@@ -50,7 +45,5 @@ struct ContentView: View {
 }
 
 #Preview {
-  ContentView()
+  Library()
 }
-
-

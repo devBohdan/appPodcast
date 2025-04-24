@@ -1,110 +1,32 @@
 //
-//  CustomTabView.swift
+//  TabBarView.swift
 //  appPodcast
 //
-//  Created by Bohdan Kompaniiets on 07.04.2025.
+//  Created by Bohdan Kompaniiets on 21.03.2025.
 //
 
+
 import SwiftUI
+//
+//struct AppView: View {
+//  @State private var selection: String = "home"
+//  @State private var currentSelcetion: TabBarItem = .library
+//  
+//  var body: some View {
+//    CustomTabContainerView(currentTab: $currentSelcetion) {
+//      Color.blue
+//        .tabBarItem(tab: .downloads, currentTab: $currentSelcetion)
+//      Color.red
+//        .tabBarItem(tab: .library, currentTab: $currentSelcetion)
+//      Color.green
+//        .tabBarItem(tab: .search, currentTab: $currentSelcetion)
+//      Color.gray
+//        .tabBarItem(tab: .profile, currentTab: $currentSelcetion)
+//    }
+//  }
+//}
 
-struct CustomTabView: View {
-  let tabs: [TabBarItem]
-  @Binding var currentTab: TabBarItem
-  
-  var body : some View {
-    HStack(spacing: 2) {
-      ForEach(tabs, id: \.self) { tab in
-        tabView(tab: tab)
-      }
-    }
-  }
-}
-
-extension CustomTabView {
-  private func tabView(tab: TabBarItem) -> some View {
-    Button(action: {currentTab = tab}) {
-      HStack {
-        Spacer()
-        Text(tab.title)
-        Spacer()
-      }
-    }
-    // Font
-    .font(.button)
-    // TODO: Более разный вид
-    .foregroundStyle(currentTab == tab ? .white.opacity(0.5) : .white.opacity(0.9))
-    
-    // Size
-    .frame(height: 44, alignment: .bottom)
-    .offset(y: -5)
-    .background(
-      Rectangle()
-      // Color
-        .fill(
-          LinearGradient(gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.1),
-                                                     Color(hue: 0, saturation: 0, brightness: 0.4),
-                                                     Color(hue: 0, saturation: 0, brightness: 0.2)]),
-                         startPoint: .top,
-                         endPoint: UnitPoint(x: 0.5, y: 0.12))
-        )
-        .overlay(
-          ZStack(alignment: .topLeading) {
-            // Glare
-            Rectangle()
-              .frame(height: 1)
-              .overlay(
-                LinearGradient(gradient: Gradient(
-                  colors: [Color(hue: 0, saturation: 0, brightness: 0.4),
-                           Color(hue: 0, saturation: 0, brightness: 0.5),
-                           Color(hue: 0, saturation: 0, brightness: 0.4)]
-                ),
-                               startPoint: .leading,
-                               endPoint: UnitPoint(x: 0.7, y: 0.5))
-              )
-              .offset(y: 4)
-            
-            // Left Border
-            Rectangle()
-              .frame(width: 1)
-              .foregroundColor(Color(hue: 0, saturation: 0, brightness: 0.3))
-              .clipped()
-            
-            // Noise
-            Image("Noize")
-              .resizable(resizingMode: .tile)
-              .opacity(0.5)
-          }
-        ).ignoresSafeArea(edges: .bottom)
-    )
-  }
-}
-
-
-struct TabBarItem: Hashable {
-  let title: String
-}
 
 #Preview {
-  Spacer()
-  
-  let tabs: [TabBarItem] = [TabBarItem(title:"DOWNLOADS"),
-                            TabBarItem(title:"LIBRARY"),
-                            TabBarItem(title:"SEARCH"),
-                            TabBarItem(title:"PROFILE")]
-  CustomTabView(tabs: tabs, currentTab: .constant(tabs.first ?? TabBarItem(title: "LIBRARY")))
+    AppView()
 }
-//  // MARK: ButtonTabView Design
-//  HStack(spacing: 2) {
-//    Image("Tab")
-//      .resizable()
-//      .frame(width: 99, height: 62, alignment: .leading)
-//    Image("Tab")
-//      .resizable()
-//      .frame(width: 99, height: 62, alignment: .leading)
-//    Image("Tab")
-//      .resizable()
-//      .frame(width: 99, height: 62, alignment: .leading)
-//    Image("Tab")
-//      .resizable()
-//      .frame(width: 99, height: 62, alignment: .leading)
-//  }

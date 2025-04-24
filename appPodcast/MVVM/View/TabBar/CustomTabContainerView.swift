@@ -25,17 +25,14 @@ struct CustomTabContainerView<Content: View>: View {
       ZStack {
         content
       }
-      CustomTabView(tabs: tabs , currentTab: $currentTab)
+      CustomTabBtnView(tabs: tabs , currentTab: $currentTab)
     }
     .onPreferenceChange(TabBarItemsPreferenceKey.self, perform: { value in self.tabs = value})
   }
 }
 
 #Preview {
-  let tabs: [TabBarItem] = [TabBarItem(title:"DOWNLOADS"),
-                            TabBarItem(title:"LIBRARY"),
-                            TabBarItem(title:"SEARCH"),
-                            TabBarItem(title:"PROFILE")]
+  let tabs: [TabBarItem] = [.downloads, .library, .profile, .search]
   
   CustomTabContainerView(currentTab: .constant(tabs.first!)) {
     Color.red
