@@ -14,14 +14,14 @@ struct AppView: View {
   
   var body: some View {
     CustomTabContainerView(currentTab: $currentSelcetion) {
-      Color.blue
-        .tabBarItem(tab: .downloads, currentTab: $currentSelcetion)
-      Library()
-        .tabBarItem(tab: .library, currentTab: $currentSelcetion)
-      Color.green
-        .tabBarItem(tab: .search, currentTab: $currentSelcetion)
-      Color.gray
-        .tabBarItem(tab: .profile, currentTab: $currentSelcetion)
+      Color.blue.tabBarItem(tab: .downloads, currentTab: $currentSelcetion)
+      
+      Library().tabBarItem(tab: .library, currentTab: $currentSelcetion)
+      
+      Color.green.tabBarItem(tab: .search, currentTab: $currentSelcetion)
+      
+      Color.gray.tabBarItem(tab: .profile, currentTab: $currentSelcetion)
+      
     }
   }
 }
