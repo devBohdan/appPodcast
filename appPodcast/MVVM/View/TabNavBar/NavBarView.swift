@@ -11,17 +11,22 @@ struct NavBarView: View {
   var body: some View {
     CustomNavView {
       ZStack {
-        Color.brown
-        NavigationLink(
+        Color.white.opacity(0.3)
+        CustomNavigationLink(
           destination:
-            Text("destination")
-            .navigationTitle("navigationTitle 2")
-            .navigationBarBackButtonHidden(false),
+            ZStack {
+              Color.white.opacity(0.4)
+              Text("destination")
+            }
+            .customNavigationTitle("Title 2")
+            .customNavigationSubTitle("| SubTitle"),
           label: {
             Text("Nav")
           }
         )
-      }.navigationTitle("navigationTitle")
+      }
+      .customNavigationTitle("customNavigationTitle")
+      .customNavBarBackBtnHidden(true)
     }
     
   }

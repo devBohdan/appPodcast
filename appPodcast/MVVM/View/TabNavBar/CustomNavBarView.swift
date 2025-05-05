@@ -8,20 +8,26 @@
 import SwiftUI
 
 struct CustomNavBarView: View {
-  @State private var title: String = "Title"
-  @State private var subTitle: String? = "| SubTitle"
+  @Environment(\.presentationMode) var presentationMode
+  let showBackBtn: Bool
+  let title: String
+  let subTitle: String?
 
   
   var body: some View {
     HStack {
-      Button(action: {},
-             label: {
-        Text("Back")
+      Button(action: {presentationMode.wrappedValue.dismiss()
+      }, label: {
+        if showBackBtn {
+          Text("Back")
+        }
       })
       Spacer()
       HStack {
         Text(title)
-        Text(subTitle!)
+        if let subTitle = subTitle {
+            Text(subTitle)
+        }
       }
       Spacer()
     }
@@ -32,6 +38,6 @@ struct CustomNavBarView: View {
 }
 
 #Preview {
-  CustomNavBarView()
+  CustomNavBarView(showBackBtn: true, title: "titlePrev", subTitle: "subTitlePrev")
   Spacer()
 }
