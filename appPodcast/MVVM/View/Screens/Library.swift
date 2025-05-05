@@ -18,26 +18,14 @@ struct Library: View {
       VStack(spacing: 1) {
         // MARK: Episodes
         ScrollView {
-            LazyVStack {
-                ForEach(episodes) { episode in
-                    EpisodeView(episode: episode)
-                }
-            }
-        }.withGlare()
-
-        VStack(spacing: 3) {
-          // MARK: Mini Player
-          VStack(spacing: 1) {
-            PlayerProgressBar()
-            HStack(alignment: .bottom, spacing: 3) {
-              PlayerDisplayView()
-              PlayerButtonView()
-              PlayerButtonView()
-              PlayerButtonView()
-                .padding(.trailing, 2)
+          LazyVStack {
+            ForEach(episodes) { episode in
+              EpisodeView(episode: episode)
             }
           }
-        }
+        }.withGlare()
+        
+        MiniPlayerView()
       }
     }
     .background(Color.black)

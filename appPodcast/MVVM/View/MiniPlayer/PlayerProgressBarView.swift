@@ -1,5 +1,5 @@
 //
-//  PlayerProgressBar.swift
+//  PlayerProgressBarView.swift
 //  appPodcast
 //
 //  Created by Bohdan Kompaniiets on 21.03.2025.
@@ -7,7 +7,7 @@
 
 import SwiftUI
   
-struct PlayerProgressBar: View {
+struct PlayerProgressBarView: View {
   var body: some View {
     // MARK: Display
     HStack {
@@ -35,7 +35,7 @@ struct PlayerProgressBar: View {
 
 
 #Preview {
-  PlayerProgressBar()
+  PlayerProgressBarView()
   
   // MARK: Button Design
   Image("Progress bar")
