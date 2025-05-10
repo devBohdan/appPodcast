@@ -32,9 +32,19 @@ extension Font {
   static var displayBody: Font { Font.custom(SometypeMono.regular.rawValue, size: 14) }
   static var miniPlayer: Font { Font.custom(SometypeMono.regular.rawValue, size: 14) }
   
+  
+  /// For "UI"
+  /// TabBar
+  /// MiniPlayer
+  static var monoDisplay: Font { Font.custom(SometypeMono.regular.rawValue, size: 14) }
+
+  /// For intensive reading
+  /// Main display
+  /// Progress bar
+  static var monoBody: Font { Font.custom(SometypeMono.regular.rawValue, size: 12) }
+
+  /// Custom
   static var button: Font { Font.custom(SometypeMono.regular.rawValue, size: 14) }
-
-
 }
 
 
