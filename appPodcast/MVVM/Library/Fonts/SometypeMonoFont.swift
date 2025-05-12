@@ -36,12 +36,12 @@ extension Font {
   /// For "UI"
   /// TabBar
   /// MiniPlayer
-  static var monoDisplay: Font { Font.custom(SometypeMono.regular.rawValue, size: 14) }
+  static var monoDisplay2: Font { Font.custom(SometypeMono.regular.rawValue, size: 14) }
 
   /// For intensive reading
   /// Main display
   /// Progress bar
-  static var monoBody: Font { Font.custom(SometypeMono.regular.rawValue, size: 12) }
+  static var monoBody2: Font { Font.custom(SometypeMono.regular.rawValue, size: 12) }
 
   /// Custom
   static var button: Font { Font.custom(SometypeMono.regular.rawValue, size: 14) }

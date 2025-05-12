@@ -18,11 +18,11 @@ struct Library: View {
       VStack(spacing: 1) {
         // MARK: Episodes
         ScrollView {
-          LazyVStack {
+          LazyVStack(spacing: 30) {
             ForEach(episodes) { episode in
-              EpisodeView(episode: episode)
+              EpisodeItemView(episode: episode)
             }
-          }
+          }.padding(.horizontal, 15)
         }.withGlare()
         
         MiniPlayerView()
