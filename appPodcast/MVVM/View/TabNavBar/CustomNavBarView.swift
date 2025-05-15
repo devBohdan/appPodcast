@@ -51,6 +51,7 @@ extension CustomNavBarView {
         .foregroundStyle(subTitle == nil ? Color.cDisplay : Color.cText)
         .underline(subTitle == nil)
         .textCase(.uppercase)
+        .lineLimit(1)
     })
   }
   
@@ -65,6 +66,7 @@ extension CustomNavBarView {
           .underline()
       }
       .textCase(.uppercase)
+      .lineLimit(1)
     }
   }
   
