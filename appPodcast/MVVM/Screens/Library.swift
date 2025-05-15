@@ -13,20 +13,23 @@ struct Library: View {
   @State var episodes = Episode.samples
   
   var body: some View {
-    VStack {
-      Spacer()
-      VStack(spacing: 1) {
-        // MARK: Episodes
+    VStack(spacing: 1) {
+      
+      // MARK: Episodes
+      CustomNavView {
         ScrollView {
           LazyVStack(spacing: 30) {
             ForEach(episodes) { episode in
               EpisodeItemView(episode: episode)
             }
-          }.padding(.horizontal, 15)
-        }.withGlare()
-        
-        MiniPlayerView()
+          }.padding(.horizontal, 15).padding(.top, 30)
+        }
+        .customNavigationTitle("Library")
+        .customNavBarBackBtnHidden(true)
+        .withGlare()
       }
+      
+      MiniPlayerView()
     }
     .background(Color.black)
   }

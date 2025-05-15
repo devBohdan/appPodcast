@@ -30,9 +30,9 @@ extension CustomTabBtnView {
       }
     }
     // Font
-    .font(.button)
+    .font(.monoDisplay)
     // TODO: Более разный вид
-    .foregroundStyle(currentTab == tab ? .white.opacity(0.5) : .white.opacity(0.9))
+    .foregroundStyle(currentTab == tab ? Color.cDisplay.opacity(0.9) : Color.cDisable.opacity(0.9))
     
     // Size
     .frame(height: 44, alignment: .bottom)

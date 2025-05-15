@@ -29,7 +29,7 @@ struct Glare: ViewModifier {
                 endPoint: UnitPoint(x: 0.75, y: 1)
               ).opacity(0.1)
             )
-        }.allowsHitTesting(false)
+        }.allowsHitTesting(false).ignoresSafeArea()
       )
   }
 }

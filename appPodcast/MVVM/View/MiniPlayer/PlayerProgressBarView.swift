@@ -18,8 +18,9 @@ struct PlayerProgressBarView: View {
       Text("41:05 left")
         .frame(maxWidth: .infinity, alignment: .trailing)
     }
-    .font(.miniPlayer)
-    .foregroundStyle(.white.opacity(0.9))
+    .font(.monoBody)
+    .textCase(.lowercase)
+    .foregroundStyle(Color.cText)
     
     .padding(.horizontal, 10)
     .padding(.vertical, 2)

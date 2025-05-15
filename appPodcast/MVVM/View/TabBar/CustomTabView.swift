@@ -7,26 +7,26 @@
 
 
 import SwiftUI
-//
-//struct AppView: View {
-//  @State private var selection: String = "home"
-//  @State private var currentSelcetion: TabBarItem = .library
-//  
-//  var body: some View {
-//    CustomTabContainerView(currentTab: $currentSelcetion) {
-//      Color.blue
-//        .tabBarItem(tab: .downloads, currentTab: $currentSelcetion)
-//      Color.red
-//        .tabBarItem(tab: .library, currentTab: $currentSelcetion)
-//      Color.green
-//        .tabBarItem(tab: .search, currentTab: $currentSelcetion)
-//      Color.gray
-//        .tabBarItem(tab: .profile, currentTab: $currentSelcetion)
-//    }
-//  }
-//}
+
+struct AppView2: View {
+  @State private var selection: String = "home"
+  @State private var currentSelcetion: TabBarItem = .library
+  
+  var body: some View {
+    CustomTabContainerView(currentTab: $currentSelcetion) {
+      Color.blue
+        .tabBarItem(tab: .downloads, currentTab: $currentSelcetion)
+      Color.red
+        .tabBarItem(tab: .library, currentTab: $currentSelcetion)
+      Color.green
+        .tabBarItem(tab: .search, currentTab: $currentSelcetion)
+      Color.gray
+        .tabBarItem(tab: .profile, currentTab: $currentSelcetion)
+    }
+  }
+}
 
 
 #Preview {
-    AppView()
+    AppView2()
 }

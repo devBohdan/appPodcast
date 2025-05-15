@@ -12,6 +12,8 @@ struct NavBarView: View {
     CustomNavView {
       ZStack {
         Color.white.opacity(0.3)
+        Rectangle()
+          .frame(width: 100, height: 100)
         CustomNavigationLink(
           destination:
             ZStack {
@@ -19,7 +21,7 @@ struct NavBarView: View {
               Text("destination")
             }
             .customNavigationTitle("Title 2")
-            .customNavigationSubTitle("| SubTitle"),
+            .customNavigationSubTitle("SubTitle"),
           label: {
             Text("Nav")
           }
@@ -45,6 +47,7 @@ extension NavBarView {
         NavigationLink(
           destination:
             Text("destination")
+
             .navigationTitle("navigationTitle 2")
             .navigationBarBackButtonHidden(false),
           label: {
