@@ -20,7 +20,9 @@ struct Library: View {
         ScrollView {
           LazyVStack(spacing: 30) {
             ForEach(episodes) { episode in
-              EpisodeItemView(episode: episode)
+              CustomNavigationLink(
+                destination: Text("test"),
+                label: { EpisodeItemView(episode: episode) })
             }
           }.padding(.horizontal, 15).padding(.top, 30)
         }
