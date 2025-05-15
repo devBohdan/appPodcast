@@ -71,10 +71,10 @@ extension CustomNavBarView {
   func buttonsBlock() -> some View {
     HStack {
       if subTitle != nil {
-        Text("add_filter")
-        Text("|")
         Text("edit")
       } else {
+        Text("add_filter")
+        Text("|")
         Text("edit")
       }
     }
