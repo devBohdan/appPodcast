@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EpisodeItemView: View {
   
-  var episode: Episode
+  var episode: Episode  
   
   var body: some View {
     HStack(alignment: .top, spacing: 0) {
@@ -50,7 +50,7 @@ struct EpisodeItemView: View {
         
         HStack { Text(episode.data); Spacer(); Text("[DL] [AR] [Q]") }
           .foregroundStyle(Color.cDisable)
-      }
+      }.multilineTextAlignment(.leading)
       
     }.font(.monoBody)
   }
