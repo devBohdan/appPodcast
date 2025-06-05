@@ -39,7 +39,7 @@ struct PlayerDisplayView: View {
 #Preview {
 
   PlayerDisplayView()
-    .frame(width: 214, height: 61, alignment: .leading)
+    .frame(width: 214)
 
   // MARK: Button Design
   Image("DesignPlayerDisplay")

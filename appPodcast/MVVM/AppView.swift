@@ -25,7 +25,9 @@ struct AppView: View {
 
       Color.gray
         .tabBarItem(tab: .profile, currentTab: $currentSelcetion)
-    }.background(.black)
+    }
+    // BG color between blocks
+    .background(Color.cSpacing)
   }
 }
 
