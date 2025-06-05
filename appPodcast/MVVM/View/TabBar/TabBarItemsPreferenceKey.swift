@@ -10,17 +10,16 @@ import SwiftUI
 
 struct TabBarItemsPreferenceKey: PreferenceKey {
   static var defaultValue: [TabBarItem] = []
-  
+
   static func reduce(value: inout [TabBarItem], nextValue: () -> [TabBarItem]) {
     value += nextValue()
   }
 }
 
-
 struct TabBarItemViewModifier: ViewModifier {
   let tab: TabBarItem
   @Binding var currentTab: TabBarItem
-  
+
   func body(content: Content) -> some View {
     content
       .opacity(currentTab == tab ? 1.0 : 0.0 )

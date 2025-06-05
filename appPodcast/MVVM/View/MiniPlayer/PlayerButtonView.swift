@@ -5,11 +5,10 @@
 //  Created by Bohdan Kompaniiets on 19.03.2025.
 //
 
-
 import SwiftUI
 
 struct PlayerButtonView: View {
-  
+
   private let insideBorderGradient = RadialGradient(
     gradient: Gradient(colors: [Color(hue: 0, saturation: 0, brightness: 0.7),
                                 Color(hue: 0, saturation: 0, brightness: 0.5),
@@ -27,9 +26,8 @@ struct PlayerButtonView: View {
     startRadius: 0,
     endRadius: 100
   )
-  
-  
-  private func buttonBG(_ borderGradient: RadialGradient ,corner: CGFloat) -> some View {
+
+  private func buttonBG(_ borderGradient: RadialGradient, corner: CGFloat) -> some View {
     RoundedRectangle(cornerRadius: corner, style: .circular)
       .fill(
         Color(hue: 0, saturation: 0, brightness: 0.2)
@@ -38,27 +36,27 @@ struct PlayerButtonView: View {
           .shadow(.inner(color: .black.opacity(0.8), radius: 1, x: 0, y: 0))
       )
     // Glare
-      .strokeBorder(borderGradient ,lineWidth: 0.5)
-    
+      .strokeBorder(borderGradient, lineWidth: 0.5)
+
       .overlay(
         Image("Noize")
           .resizable(resizingMode: .tile)
           .opacity(0.50)
           .clipShape(RoundedRectangle(cornerRadius: corner))
+          .accessibilityHidden(true)
       )
   }
-  
+
   var body: some View {
     // MARK: Button
-    Button(action: {}) {
-      
-    }
+    Button(action: {},
+           label: {})
     // MARK: Inside button
     .padding(5)
     .frame(minWidth: 32, minHeight: 32)
     .background(buttonBG(insideBorderGradient, corner: 999))
     // MARK: Shadows
-    // TODO: ZStack all .backgrounds
+    // TODO: [REF] ZStack all .backgrounds
     // Black
     .background(  // 0
       RoundedRectangle(cornerRadius: 999, style: .circular)
@@ -96,12 +94,12 @@ struct PlayerButtonView: View {
       RoundedRectangle(cornerRadius: 999, style: .circular)
         .fill(Color(.black))
         .opacity(1)
-        .shadow(color: .black, radius: 0, x:  -1, y:  -2)
+        .shadow(color: .black, radius: 0, x: -1, y: -2)
         .blur(radius: 4, opaque: false)
         .blendMode(.overlay)
     )
     // White
-    .background( //5
+    .background( // 5
       RoundedRectangle(cornerRadius: 999, style: .circular)
         .fill(Color(.white))
         .opacity(0.2)
@@ -121,10 +119,9 @@ struct PlayerButtonView: View {
     .padding(14)
     .frame(minWidth: 60, minHeight: 60)
     .background(buttonBG(outsideBorderGradient, corner: 4))
-    // .drawingGroup() // TODO: it make btn lighter
+    // .drawingGroup() // TODO: [REF] Make button to lighter
   }
 }
-
 
 #Preview {
   VStack {

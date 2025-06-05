@@ -11,14 +11,14 @@ struct CustomNavBarContainerView<Content: View>: View {
   let content: Content
   @State private var showBackBtn: Bool = true
   @State private var title: String = "Title"
-  @State private var subTitle: String? = nil
-  
+  @State private var subTitle: String?
+
   init(@ViewBuilder content: () -> Content) {
     self.content = content()
   }
-  
+
     var body: some View {
-      VStack(spacing: 0) {
+      VStack(spacing: 1) {
         CustomNavBarView(showBackBtn: showBackBtn, title: title, subTitle: subTitle)
         content
           .frame(maxWidth: .infinity, maxHeight: .infinity)

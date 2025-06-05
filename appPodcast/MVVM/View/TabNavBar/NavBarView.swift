@@ -30,7 +30,6 @@ struct NavBarView: View {
       .customNavigationTitle("customNavigationTitle")
       .customNavBarBackBtnHidden(true)
     }
-    
   }
 }
 
@@ -43,7 +42,7 @@ extension NavBarView {
     NavigationView {
       ZStack {
         Color.green.ignoresSafeArea()
-        
+
         NavigationLink(
           destination:
             Text("destination")

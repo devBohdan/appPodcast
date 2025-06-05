@@ -5,13 +5,12 @@
 //  Created by Bohdan Kompaniiets on 21.03.2025.
 //
 
-
 import SwiftUI
 
 struct AppView2: View {
   @State private var selection: String = "home"
   @State private var currentSelcetion: TabBarItem = .library
-  
+
   var body: some View {
     CustomTabContainerView(currentTab: $currentSelcetion) {
       Color.blue
@@ -25,7 +24,6 @@ struct AppView2: View {
     }
   }
 }
-
 
 #Preview {
     AppView2()

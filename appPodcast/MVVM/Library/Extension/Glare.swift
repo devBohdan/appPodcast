@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct Glare: ViewModifier {
   func body(content: Content) -> some View {
     content
@@ -34,13 +33,11 @@ struct Glare: ViewModifier {
   }
 }
 
-
 extension View {
   func withGlare() -> some View {
     modifier(Glare())
   }
 }
-
 
 #Preview {
   Rectangle()

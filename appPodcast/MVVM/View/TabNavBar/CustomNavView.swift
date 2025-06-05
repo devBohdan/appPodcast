@@ -7,24 +7,24 @@
 
 import SwiftUI
 
-struct CustomNavView<Content:View>: View {
-  
-  let contant:Content
-  
+struct CustomNavView<Content: View>: View {
+
+  let contant: Content
+
   init(@ViewBuilder contant: () -> Content) {
     self.contant = contant()
   }
-  
+
     var body: some View {
       NavigationView {
-        
+
         CustomNavBarContainerView {
           contant
         }
         .navigationBarHidden(true)
       }
       .navigationViewStyle(StackNavigationViewStyle())
-      // TODO: Change navigationViewStyle
+      // TODO: [UI] Change navigationViewStyle
     }
 }
 
@@ -34,10 +34,11 @@ struct CustomNavView<Content:View>: View {
   }
 }
 
-
+// swiftlint: disable override_in_extension
 extension UINavigationController {
-  open override func viewDidLoad() {
+  override open func viewDidLoad() {
     super.viewDidLoad()
     interactivePopGestureRecognizer?.delegate = nil
   }
 }
+// swiftlint: enable override_in_extension

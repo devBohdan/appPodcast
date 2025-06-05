@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-  
+
 struct PlayerProgressBarView: View {
   var body: some View {
     // MARK: Display
@@ -21,23 +21,23 @@ struct PlayerProgressBarView: View {
     .font(.monoBody)
     .textCase(.lowercase)
     .foregroundStyle(Color.cText)
-    
+
     .padding(.horizontal, 10)
     .padding(.vertical, 2)
-    
+
     // MARK: Progress
     .overlay(
       Rectangle().frame(width: 100).foregroundStyle(.white.opacity(0.1)),
       alignment: .leading
     )
+    .background(Color.cBG)
     .withGlare()
   }
 }
 
-
 #Preview {
   PlayerProgressBarView()
-  
+
   // MARK: Button Design
   Image("Progress bar")
     .resizable()

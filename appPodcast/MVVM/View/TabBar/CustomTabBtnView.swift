@@ -10,8 +10,8 @@ import SwiftUI
 struct CustomTabBtnView: View {
   let tabs: [TabBarItem]
   @Binding var currentTab: TabBarItem
-  
-  var body : some View {
+
+  var body: some View {
     HStack(spacing: 2) {
       ForEach(tabs, id: \.self) { tab in
         tabView(tab: tab)
@@ -22,18 +22,19 @@ struct CustomTabBtnView: View {
 
 extension CustomTabBtnView {
   private func tabView(tab: TabBarItem) -> some View {
-    Button(action: {currentTab = tab}) {
+    Button(action: { currentTab = tab }, label: {
       HStack {
         Spacer()
         Text(tab.title)
         Spacer()
       }
-    }
+    })
+
     // Font
     .font(.monoDisplay)
-    // TODO: Более разный вид
+    // TODO: [UX] Make more distinct states
     .foregroundStyle(currentTab == tab ? Color.cDisplay.opacity(0.9) : Color.cDisable.opacity(0.9))
-    
+
     // Size
     .frame(height: 44, alignment: .bottom)
     .offset(y: -5)
@@ -62,13 +63,13 @@ extension CustomTabBtnView {
                                endPoint: UnitPoint(x: 0.7, y: 0.5))
               )
               .offset(y: 4)
-            
+
             // Left Border
             Rectangle()
               .frame(width: 1)
               .foregroundColor(Color(hue: 0, saturation: 0, brightness: 0.3))
               .clipped()
-            
+
             // Noise
             Image("Noize")
               .resizable(resizingMode: .tile)
@@ -79,14 +80,16 @@ extension CustomTabBtnView {
   }
 }
 
-
 #Preview {
   Spacer()
-  
+
   let tabs: [TabBarItem] = [.downloads, .library, .profile, .search]
-  
+
+  // swiftlint:disable force_unwrapping
   CustomTabBtnView(tabs: tabs, currentTab: .constant(tabs.first!))
+  // swiftlint:enable force_unwrapping
 }
+
 //  // MARK: ButtonTabView Design
 //  HStack(spacing: 2) {
 //    Image("Tab")

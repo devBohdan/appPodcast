@@ -7,13 +7,13 @@
 
 import SwiftUI
 
-//struct TabBarItem: Hashable {
-//  let title: String
-//}
+// struct TabBarItem: Hashable {
+//   let title: String
+// }
 
 enum TabBarItem: Hashable {
   case downloads, library, search, profile
-  
+
   var title: String {
     switch self {
     case .downloads: return "DOWNLOADS"

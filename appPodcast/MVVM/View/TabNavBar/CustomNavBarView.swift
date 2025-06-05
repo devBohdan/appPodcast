@@ -12,11 +12,11 @@ struct CustomNavBarView: View {
   let showBackBtn: Bool
   let title: String
   var subTitle: String?
-  
+
   var body: some View {
     HStack {
       HStack {
-        //TODO: Fix press title 
+        // FIXME: [UX] Press title
         titleBlock(title: title)
         subtitleBlock(subTitle: subTitle)
       }
@@ -29,7 +29,7 @@ struct CustomNavBarView: View {
       Color.black
         .ignoresSafeArea()
     )
-    //TODO: Fix top border
+    // FIXME: [UI] Remove top border
     .withGlare()
   }
 }
@@ -39,10 +39,8 @@ struct CustomNavBarView: View {
   Spacer()
 }
 
-
-
 extension CustomNavBarView {
-  
+
   @ViewBuilder
   func titleBlock(title: String) -> some View {
     Button(action: {presentationMode.wrappedValue.dismiss()
@@ -54,11 +52,11 @@ extension CustomNavBarView {
         .lineLimit(1)
     })
   }
-  
+
   @ViewBuilder
   func subtitleBlock(subTitle: String?) -> some View {
     if let subTitle = subTitle {
-      HStack() {
+      HStack {
         Text("/")
           .foregroundStyle(Color.cText)
         Text(subTitle)
@@ -69,7 +67,7 @@ extension CustomNavBarView {
       .lineLimit(1)
     }
   }
-  
+
   func buttonsBlock() -> some View {
     HStack {
       if subTitle != nil {
