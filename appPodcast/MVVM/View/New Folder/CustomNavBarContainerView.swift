@@ -19,14 +19,14 @@ struct CustomNavBarContainerView<Content: View>: View {
 
     var body: some View {
       VStack(spacing: 1) {
-        CustomNavBarView(showBackBtn: showBackBtn, title: title, subTitle: subTitle)
+        CustomNavBarView(title: title, subtitle: subTitle)
         content
           .frame(maxWidth: .infinity, maxHeight: .infinity)
       }
       .onPreferenceChange(NavBarTitlePreferenceKey.self) { value in
         self.title = value
       }
-      .onPreferenceChange(NavBarSubTitlePreferenceKey.self) { value in
+      .onPreferenceChange(NavBarSubtitlePreferenceKey.self) { value in
         self.subTitle = value
       }
       .onPreferenceChange(NavBarSubHiddenBtnPreferenceKey.self) { value in
@@ -38,10 +38,10 @@ struct CustomNavBarContainerView<Content: View>: View {
 #Preview {
   CustomNavBarContainerView {
     ZStack {
-      Color.red
+//      Color.red
       Text("Hi")
         .customNavigationTitle("PrevTitle")
-        .customNavigationSubTitle("PrevSubTitle")
+        .customNavigationSubtitle("PrevSubTitle")
         .customNavBarBackBtnHidden(true)
     }
   }

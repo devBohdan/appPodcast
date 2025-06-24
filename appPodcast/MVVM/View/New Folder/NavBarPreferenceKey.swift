@@ -7,8 +7,8 @@
 
 import SwiftUI
 
+/// Title
 struct NavBarTitlePreferenceKey: PreferenceKey {
-
   static var defaultValue: String = ""
 
   static func reduce(value: inout String, nextValue: () -> String) {
@@ -16,8 +16,8 @@ struct NavBarTitlePreferenceKey: PreferenceKey {
   }
 }
 
-struct NavBarSubTitlePreferenceKey: PreferenceKey {
-
+/// Subtitle
+struct NavBarSubtitlePreferenceKey: PreferenceKey {
   static var defaultValue: String?
 
   static func reduce(value: inout String?, nextValue: () -> String?) {
@@ -25,8 +25,8 @@ struct NavBarSubTitlePreferenceKey: PreferenceKey {
   }
 }
 
+// TODO: [FIX] Delete?
 struct NavBarSubHiddenBtnPreferenceKey: PreferenceKey {
-
   static var defaultValue: Bool = false
 
   static func reduce(value: inout Bool, nextValue: () -> Bool) {
@@ -36,25 +36,25 @@ struct NavBarSubHiddenBtnPreferenceKey: PreferenceKey {
 
 extension View {
 
+  /// Title
   func customNavigationTitle(_ title: String) -> some View {
-    self
-      .preference(key: NavBarTitlePreferenceKey.self, value: title)
+    preference(key: NavBarTitlePreferenceKey.self, value: title)
   }
 
-  func customNavigationSubTitle(_ subTitle: String?) -> some View {
-    self
-      .preference(key: NavBarSubTitlePreferenceKey.self, value: subTitle)
+  /// Subtitle
+  func customNavigationSubtitle(_ subtitle: String?) -> some View {
+    preference(key: NavBarSubtitlePreferenceKey.self, value: subtitle)
   }
 
+  /// Delete?
   func customNavBarBackBtnHidden(_ hidden: Bool) -> some View {
-    self
-      .preference(key: NavBarSubHiddenBtnPreferenceKey.self, value: hidden)
+    preference(key: NavBarSubHiddenBtnPreferenceKey.self, value: hidden)
   }
 
   func customNavBarItems(title: String = "", subTitle: String? = nil, backBtnHidden: Bool = false) -> some View {
     self
       .customNavigationTitle(title)
-      .customNavigationSubTitle(subTitle)
+      .customNavigationSubtitle(subTitle)
       .customNavBarBackBtnHidden(backBtnHidden)
   }
 }

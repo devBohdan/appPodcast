@@ -25,7 +25,7 @@ struct Library: View {
               CustomNavigationLink(
                 destination: Text("test")
                   .customNavigationTitle(barTitle)
-                  .customNavigationSubTitle(episode.title),
+                  .customNavigationSubtitle(episode.title),
                 label: { EpisodeItemView(episode: episode) })
             }
           }

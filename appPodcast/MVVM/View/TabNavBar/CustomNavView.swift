@@ -21,9 +21,9 @@ struct CustomNavView<Content: View>: View {
         CustomNavBarContainerView {
           contant
         }
-        .navigationBarHidden(true)
+//        .navigationBarHidden(true)
       }
-      .navigationViewStyle(StackNavigationViewStyle())
+//      .navigationViewStyle(StackNavigationViewStyle())
       // TODO: [UI] Change navigationViewStyle
     }
 }

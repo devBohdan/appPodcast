@@ -8,14 +8,20 @@
 import SwiftUI
 
 struct Glare: ViewModifier {
+  let showBorder: Bool
+
   func body(content: Content) -> some View {
     content
       .overlay(
         ZStack(alignment: .top) {
+
           // Border
-          Rectangle()
-            .frame(height: 0.5)
-            .foregroundStyle(Color(hue: 0, saturation: 0, brightness: 0.4))
+          if showBorder {
+            Rectangle()
+              .frame(height: 0.5)
+              .foregroundStyle(Color(hue: 0, saturation: 0, brightness: 0.4))
+          }
+
           // Glare
           Rectangle()
             .foregroundStyle(
@@ -34,8 +40,8 @@ struct Glare: ViewModifier {
 }
 
 extension View {
-  func withGlare() -> some View {
-    modifier(Glare())
+  func withGlare(showBorder: Bool = true) -> some View {
+    modifier(Glare(showBorder: showBorder))
   }
 }
 

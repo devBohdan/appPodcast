@@ -21,7 +21,7 @@ struct NavBarView: View {
               Text("destination")
             }
             .customNavigationTitle("Title 2")
-            .customNavigationSubTitle("SubTitle"),
+            .customNavigationSubtitle("SubTitle"),
           label: {
             Text("Nav")
           }

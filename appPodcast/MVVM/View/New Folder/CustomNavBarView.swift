@@ -9,57 +9,56 @@ import SwiftUI
 
 struct CustomNavBarView: View {
   @Environment(\.presentationMode) var presentationMode
-  let showBackBtn: Bool
+//  let showBackBtn: Bool
   let title: String
-  var subTitle: String?
+  var subtitle: String?
 
   var body: some View {
     HStack {
       HStack {
         // FIXME: [UX] Press title
-        titleBlock(title: title)
-        subtitleBlock(subTitle: subTitle)
+        titleText(title: title)
+        subtitleText(subtitle: subtitle)
       }
       Spacer()
-      buttonsBlock()
+      buttonsAction()
     }
     .font(.monoDisplay)
     .padding()
     .background(
-      Color.black
+      Color.cBG
         .ignoresSafeArea()
     )
-    // FIXME: [UI] Remove top border
-    .withGlare()
+    .withGlare(showBorder: false)
   }
 }
 
 #Preview {
-  CustomNavBarView(showBackBtn: true, title: "title", subTitle: "subTitle")
+  CustomNavBarView(title: "title", subtitle: "subTitle")
   Spacer()
 }
 
 extension CustomNavBarView {
 
   @ViewBuilder
-  func titleBlock(title: String) -> some View {
+  func titleText(title: String) -> some View {
     Button(action: {presentationMode.wrappedValue.dismiss()
     }, label: {
       Text(title)
-        .foregroundStyle(subTitle == nil ? Color.cDisplay : Color.cText)
-        .underline(subTitle == nil)
+        .foregroundStyle(subtitle == nil ? Color.cDisplay : Color.cText)
+        .underline(subtitle == nil)
         .textCase(.uppercase)
         .lineLimit(1)
     })
   }
 
   @ViewBuilder
-  func subtitleBlock(subTitle: String?) -> some View {
-    if let subTitle = subTitle {
+  func subtitleText(subtitle: String?) -> some View {
+    if let subtitle = subtitle {
       HStack {
         Text("/")
           .foregroundStyle(Color.cText)
-        Text(subTitle)
+        Text(subtitle)
           .foregroundStyle(Color.cDisplay)
           .underline()
       }
@@ -68,9 +67,9 @@ extension CustomNavBarView {
     }
   }
 
-  func buttonsBlock() -> some View {
+  func buttonsAction() -> some View {
     HStack {
-      if subTitle != nil {
+      if subtitle != nil {
         Text("edit")
       } else {
         Text("add_filter")
