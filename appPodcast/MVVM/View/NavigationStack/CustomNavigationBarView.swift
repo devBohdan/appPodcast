@@ -1,5 +1,5 @@
 //
-//  CustomNavBarView.swift
+//  CustomNavigationBarView.swift
 //  appPodcast
 //
 //  Created by Bohdan Kompaniiets on 02.05.2025.
@@ -7,9 +7,7 @@
 
 import SwiftUI
 
-struct CustomNavBarView: View {
-  @Environment(\.presentationMode) var presentationMode
-//  let showBackBtn: Bool
+struct CustomNavigationBarView: View {
   let title: String
   var subtitle: String?
 
@@ -25,24 +23,19 @@ struct CustomNavBarView: View {
     }
     .font(.monoDisplay)
     .padding()
-    .background(
-      Color.cBG
-        .ignoresSafeArea()
-    )
-    .withGlare(showBorder: false)
+    .screenEffect(showBorder: false)
   }
 }
 
 #Preview {
-  CustomNavBarView(title: "title", subtitle: "subTitle")
+  CustomNavigationBarView(title: "title", subtitle: "subTitle")
   Spacer()
 }
 
-extension CustomNavBarView {
+extension CustomNavigationBarView {
 
-  @ViewBuilder
   func titleText(title: String) -> some View {
-    Button(action: {presentationMode.wrappedValue.dismiss()
+    Button(action: { /*path.removeAll()*/ // FIXME: [CODE] router?
     }, label: {
       Text(title)
         .foregroundStyle(subtitle == nil ? Color.cDisplay : Color.cText)

@@ -10,32 +10,34 @@ import SwiftUI
 
 struct Library: View {
   @State private var episodes = Episode.samples
-
-  var body: some View {
-
+  @State private var path: [Episode] = []
   let barTitle: String = "Library"
 
+  var body: some View {
     VStack(spacing: 1) {
 
-      // MARK: Episodes
-      CustomNavView {
+      CustomNavigationStack(path: $path) {
+
+        // MARK: Episodes
         ScrollView {
           LazyVStack(spacing: 30) {
             ForEach(episodes) { episode in
-              CustomNavigationLink(
-                destination: Text("test")
-                  .customNavigationTitle(barTitle)
-                  .customNavigationSubtitle(episode.title),
-                label: { EpisodeItemView(episode: episode) })
+              CustomNavigationLink(value: episode) {
+                EpisodeItemView(episode: episode)
+              }
             }
-          }
-          .padding(.horizontal, 15).padding(.top, 30)
-          .background(Color.cBG)
+          }.padding(.horizontal, 15).padding(.vertical, 30)
         }
         .customNavigationTitle(barTitle)
-        .customNavBarBackBtnHidden(true)
-        .withGlare()
+
+        // MARK: Destination
+        .customNavigationDestination(for: Episode.self) { episode in
+          EpisodeItemView(episode: episode)
+            .customNavigationTitle(barTitle)
+            .customNavigationSubtitle(episode.title)
+        }
       }
+
       MiniPlayerView()
     }
   }

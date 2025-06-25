@@ -20,13 +20,11 @@ struct CustomNavigationStack<T: Hashable, Content: View>: View {
   var body: some View {
     NavigationStack(path: $path) {
 
-      CustomNavBarContainerView {
+      CustomNavigationBarContainerView {
         content
       }
-      .navigationBarBackButtonHidden()
     }
-//    .navigationViewStyle(StackNavigationViewStyle())
-    // TODO: [UI] Change navigationViewStyle
+    // TODO: [UI] Change animation
   }
 }
 
@@ -43,3 +41,20 @@ struct CustomNavigationStackPreviewWrapper: View {
     }
   }
 }
+
+// swiftlint:disable override_in_extension
+extension UINavigationController {
+  open override func viewDidLoad() {
+    super.viewDidLoad()
+    interactivePopGestureRecognizer?.delegate = nil
+  }
+}
+// swiftlint:enable override_in_extension
+
+// FIXME: [HOW]
+// class CustomNavigationController: UINavigationController {
+//   override func viewDidLoad() {
+//     super.viewDidLoad()
+//     interactivePopGestureRecognizer?.delegate = nil
+//   }
+// }

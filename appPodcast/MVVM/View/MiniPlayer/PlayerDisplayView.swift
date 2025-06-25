@@ -31,8 +31,7 @@ struct PlayerDisplayView: View {
       Spacer()
     }
     .padding(9)
-    .background(Color.cBG)
-    .withGlare()
+    .screenEffect()
   }
 }
 

@@ -30,8 +30,7 @@ struct PlayerProgressBarView: View {
       Rectangle().frame(width: 100).foregroundStyle(.white.opacity(0.1)),
       alignment: .leading
     )
-    .background(Color.cBG)
-    .withGlare()
+    .screenEffect()
   }
 }
 

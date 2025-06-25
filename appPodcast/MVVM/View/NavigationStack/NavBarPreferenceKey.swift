@@ -25,17 +25,7 @@ struct NavBarSubtitlePreferenceKey: PreferenceKey {
   }
 }
 
-// TODO: [FIX] Delete?
-struct NavBarSubHiddenBtnPreferenceKey: PreferenceKey {
-  static var defaultValue: Bool = false
-
-  static func reduce(value: inout Bool, nextValue: () -> Bool) {
-    value = nextValue()
-  }
-}
-
 extension View {
-
   /// Title
   func customNavigationTitle(_ title: String) -> some View {
     preference(key: NavBarTitlePreferenceKey.self, value: title)
@@ -46,15 +36,9 @@ extension View {
     preference(key: NavBarSubtitlePreferenceKey.self, value: subtitle)
   }
 
-  /// Delete?
-  func customNavBarBackBtnHidden(_ hidden: Bool) -> some View {
-    preference(key: NavBarSubHiddenBtnPreferenceKey.self, value: hidden)
-  }
-
   func customNavBarItems(title: String = "", subTitle: String? = nil, backBtnHidden: Bool = false) -> some View {
     self
       .customNavigationTitle(title)
       .customNavigationSubtitle(subTitle)
-      .customNavBarBackBtnHidden(backBtnHidden)
   }
 }

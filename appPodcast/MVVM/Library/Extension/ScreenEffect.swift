@@ -1,5 +1,5 @@
 //
-//  Glare.swift
+//  ScreenEffect.swift
 //  appPodcast
 //
 //  Created by Bohdan Kompaniiets on 24.03.2025.
@@ -7,11 +7,16 @@
 
 import SwiftUI
 
-struct Glare: ViewModifier {
+struct ScreenEffect: ViewModifier {
   let showBorder: Bool
 
   func body(content: Content) -> some View {
     content
+
+    // Screen bg color
+      .background(Color.cBG)
+
+    // Screen effect
       .overlay(
         ZStack(alignment: .top) {
 
@@ -40,8 +45,8 @@ struct Glare: ViewModifier {
 }
 
 extension View {
-  func withGlare(showBorder: Bool = true) -> some View {
-    modifier(Glare(showBorder: showBorder))
+  func screenEffect(showBorder: Bool = true) -> some View {
+    modifier(ScreenEffect(showBorder: showBorder))
   }
 }
 
@@ -49,5 +54,5 @@ extension View {
   Rectangle()
     .foregroundStyle(.black)
     .frame(width: 200, height: 400)
-    .withGlare()
+    .screenEffect()
 }

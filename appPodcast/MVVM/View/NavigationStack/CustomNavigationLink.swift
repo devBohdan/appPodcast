@@ -1,5 +1,5 @@
 //
-//  CustomNavLink.swift
+//  CustomNavigationLink.swift
 //  appPodcast
 //
 //  Created by Bohdan Kompaniiets on 20.06.2025.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct CustomNavLink<Label: View, Value: Hashable>: View {
+struct CustomNavigationLink<Label: View, Value: Hashable>: View {
   var value: Value
   var label: Label
 
@@ -32,7 +32,7 @@ struct CustomNavLinkPreviewWrapper: View {
 
   var body: some View {
     ForEach(episodes) { episode in
-      CustomNavLink(value: episode) {
+      CustomNavigationLink(value: episode) {
         EpisodeItemView(episode: episode)
       }
     }

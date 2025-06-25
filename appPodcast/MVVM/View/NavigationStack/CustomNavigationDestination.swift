@@ -1,56 +1,67 @@
 //
-//  CustomNavigationTEST.swift
+//  CustomNavigationDestination.swift
 //  appPodcast
 //
-//  Created by Bohdan Kompaniiets on 16.06.2025.
+//  Created by Bohdan Kompaniiets on 20.06.2025.
 //
 
 import SwiftUI
 
-struct CustomNavigationTEST: View {
+extension View {
+
+  func customNavigationDestination<D: Hashable, C: View> (
+    for type: D.Type,
+    @ViewBuilder destination: @escaping (D) -> C
+  ) -> some View {
+
+    self.navigationDestination(for: type) { value in
+      CustomNavigationBarContainerView {
+        destination(value)
+      }
+    }
+  }
+}
+
+#Preview {
+  NavigationDestinationPreview()
+}
+
+struct NavigationDestinationPreview: View {
   @State private var episodes = Episode.samples
   @State private var path: [Episode] = []
   let barTitle: String = "Library"
 
   var body: some View {
     CustomNavigationStack(path: $path) {
-
-// MARK: Content Episodes
       ScrollView {
         LazyVStack(spacing: 30) {
           ForEach(episodes) { episode in
-            CustomNavLink(value: episode) {
+            CustomNavigationLink(value: episode) {
               EpisodeItemView(episode: episode)
             }
           }
         }
         .padding(.horizontal, 15).padding(.vertical, 30)
-        /*.background(Color.cBG)*/ // TODO: [UI] found a second color
-      }
-      .navigationTitle(barTitle)
-      .withGlare()
+        .background(Color.cBG)
 
-// MARK: Content ToolBar
-      .toolbar {
-        ToolbarItemGroup(placement: .navigation) {
-          Text(barTitle)
-            .accessibilityAddTraits(.isHeader)
-        }
+        .toolbar {
+          ToolbarItemGroup(placement: .navigation) {
+            Text(barTitle)
+              .accessibilityAddTraits(.isHeader)
+          }
 
-        ToolbarItemGroup(placement: .primaryAction) {
-          HStack(spacing: 2) {
-            Button("add_filter") { }
-            Text("|")
-            Button("edit") { }
+          ToolbarItemGroup(placement: .primaryAction) {
+            HStack(spacing: 2) {
+              Button("add_filter") { }
+              Text("|")
+              Button("edit") { }
+            }
           }
         }
       }
 
-// MARK: Destination
       .customNavigationDestination(for: Episode.self) { episode in
         EpisodeItemView(episode: episode)
-
-// MARK: Destination ToolBar
           .toolbar {
             ToolbarItemGroup(placement: .navigation) {
               HStack {
@@ -65,12 +76,8 @@ struct CustomNavigationTEST: View {
                   .padding()
               }
             }
-          } .navigationBarBackButtonHidden()
+          }.navigationBarBackButtonHidden()
       }
     }
   }
-}
-
-#Preview("Custom Navigation") {
-  CustomNavigationTEST()
 }
