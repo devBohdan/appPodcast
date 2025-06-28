@@ -1,5 +1,5 @@
 //
-//  Episode.swift
+//  EpisodeSample.swift
 //  appPodcast
 //
 //  Created by Bohdan Kompaniiets on 25.03.2025.
@@ -9,7 +9,7 @@
 
 import Foundation
 
-struct Episode: Identifiable, Hashable {
+struct EpisodeSample: Identifiable, Hashable {
   var id = UUID()
   let title: String
   let description: String
@@ -18,8 +18,8 @@ struct Episode: Identifiable, Hashable {
   let duration: String
 }
 
-extension Episode {
-  static var samples: [Episode] = [
+extension EpisodeSample {
+  static var samples: [EpisodeSample] = [
 
     .init(title: "The Sunday Read: ‘What I Found on the 365-Mile Trail of a Lost Folk Hero’",
           description: "Sometime in the 1850s or ’60s, at a terrible moment in U.S. history, a strange man seemed to sprout, out of nowhere, into the rocky landscape between New York City and Hartford, Conn. The word “strange” hardly captures his strangeness. He was rough and hairy, and he wandered around on back roads, sleeping in caves. Above all, he refused to explain himself. As one newspaper put it: “He is a mystery, and a very greasy and ill-odored one.” Other papers referred to him as “the animal” or (just throwing up their hands) “this uncouth and unkempt ‘What is it?’”",

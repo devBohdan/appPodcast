@@ -19,8 +19,10 @@ struct CustomNavigationBarContainerView<Content: View>: View {
     var body: some View {
       VStack(spacing: 1) {
         CustomNavigationBarView(title: title, subtitle: subTitle)
+
         content
           .frame(maxWidth: .infinity, maxHeight: .infinity)
+          .ignoresSafeArea(.all, edges: .top)
           .toolbar(.hidden)
 
           // TODO: [TEST] TEST THIS BC IT SHOULD BE ONE LVL BELOW
@@ -31,7 +33,7 @@ struct CustomNavigationBarContainerView<Content: View>: View {
             self.subTitle = value
           }
           .screenEffect()
-      }
+      }.background(Color.cBG) // FIXME: [UI] Hide Color.systemBackground line 
     }
 }
 

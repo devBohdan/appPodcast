@@ -9,7 +9,7 @@ import SwiftUI
 
 struct EpisodeItemView: View {
 
-  var episode: Episode
+  var episode: EpisodeSample
 
   var body: some View {
     HStack(alignment: .top, spacing: 0) {
@@ -57,7 +57,7 @@ struct EpisodeItemView: View {
 }
 
 #Preview {
-  EpisodeItemView(episode: Episode.sample)
+  EpisodeItemView(episode: EpisodeSample.sample)
 }
 
 // TODO: [UI] REM EM of padding and else (Geo size?)

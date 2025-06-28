@@ -27,8 +27,8 @@ extension View {
 }
 
 struct NavigationDestinationPreview: View {
-  @State private var episodes = Episode.samples
-  @State private var path: [Episode] = []
+  @State private var episodes = EpisodeSample.samples
+  @State private var path: [EpisodeSample] = []
   let barTitle: String = "Library"
 
   var body: some View {
@@ -60,7 +60,7 @@ struct NavigationDestinationPreview: View {
         }
       }
 
-      .customNavigationDestination(for: Episode.self) { episode in
+      .customNavigationDestination(for: EpisodeSample.self) { episode in
         EpisodeItemView(episode: episode)
           .toolbar {
             ToolbarItemGroup(placement: .navigation) {

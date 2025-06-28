@@ -9,8 +9,8 @@ import Foundation
 import SwiftUI
 
 struct Library: View {
-  @State private var episodes = Episode.samples
-  @State private var path: [Episode] = []
+  @State private var episodes = EpisodeSample.samples
+  @State private var path: [EpisodeSample] = []
   let barTitle: String = "Library"
 
   var body: some View {
@@ -31,7 +31,7 @@ struct Library: View {
         .customNavigationTitle(barTitle)
 
         // MARK: Destination
-        .customNavigationDestination(for: Episode.self) { episode in
+        .customNavigationDestination(for: EpisodeSample.self) { episode in
           EpisodeItemView(episode: episode)
             .customNavigationTitle(barTitle)
             .customNavigationSubtitle(episode.title)

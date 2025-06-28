@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AppView: View {
   @State private var selection: String = "home"
-  @State private var currentSelcetion: TabBarItem = .library
+  @State private var currentSelcetion: TabBarItem = .search
 
   var body: some View {
     CustomTabContainerView(currentTab: $currentSelcetion) {
@@ -20,7 +20,7 @@ struct AppView: View {
       Library()
         .tabBarItem(tab: .library, currentTab: $currentSelcetion)
 
-      Color.green
+      Search()
         .tabBarItem(tab: .search, currentTab: $currentSelcetion)
 
       Color.gray

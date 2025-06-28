@@ -28,7 +28,7 @@ struct CustomNavigationLink<Label: View, Value: Hashable>: View {
 }
 
 struct CustomNavLinkPreviewWrapper: View {
-  @State private var episodes = Episode.samples
+  @State private var episodes = EpisodeSample.samples
 
   var body: some View {
     ForEach(episodes) { episode in

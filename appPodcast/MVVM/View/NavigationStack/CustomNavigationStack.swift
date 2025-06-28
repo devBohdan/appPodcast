@@ -33,7 +33,7 @@ struct CustomNavigationStack<T: Hashable, Content: View>: View {
 }
 
 struct CustomNavigationStackPreviewWrapper: View {
-  @State private var path: [Episode] = []
+  @State private var path: [EpisodeSample] = []
 
   var body: some View {
     CustomNavigationStack(path: $path) {
@@ -42,14 +42,14 @@ struct CustomNavigationStackPreviewWrapper: View {
   }
 }
 
-// swiftlint:disable override_in_extension
+// swiftlint:disable override_in_extension modifier_order
 extension UINavigationController {
   open override func viewDidLoad() {
     super.viewDidLoad()
     interactivePopGestureRecognizer?.delegate = nil
   }
 }
-// swiftlint:enable override_in_extension
+// swiftlint:enable override_in_extension modifier_order
 
 // FIXME: [HOW]
 // class CustomNavigationController: UINavigationController {
