@@ -14,25 +14,33 @@ import Foundation
 /// https://itunes.apple.com/search?term=Design&entity=podcastEpisode&limit=12
 
 class PodcastListViewModele: ObservableObject {
-  @Published var searchTerm: String = "Design"
+  @Published var searchTerm: String = "" {
+    // TODO: [CODE] Combine. Remove def value^. Delay
+    // FIXME: [BACK] Started work w 4+ symbols. "The" isnt work
+    didSet {
+      fetchPodcasts(for: searchTerm)
+    }
+  }
   @Published var podcasts: [Podcast] = []
 
   func fetchPodcasts(for searchTerm: String) {
 
     // "https://itunes.apple.com/search?term=\(searchTerm)&entity=podcast&limit=12"
-    guard let url = URL(string: "https://itunes.apple.com/search?term=Design&entity=podcast&limit=12") else {
+    guard let url = URL(string: "https://itunes.apple.com/search?term=\(searchTerm)&entity=podcast&limit=12") else {
       return
     }
 
     URLSession.shared.dataTask(with: url) { data, response, error in
       if let error = error {
-        print("Url error: \(error)")
+        print("Url error: \(error)\n")
       } else if let data = data {
         do {
           let result = try JSONDecoder().decode(PodcastResult.self, from: data)
-          self.podcasts = result.results
+          DispatchQueue.main.async {
+            self.podcasts = result.results
+          }
         } catch {
-          print("Decoding error: \(error)")
+          print("Decoding error: \(error)\n")
         }
       }
     }.resume()
