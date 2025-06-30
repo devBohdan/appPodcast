@@ -9,17 +9,19 @@ import SwiftUI
 
 struct PodcastListView: View {
   @StateObject private var viewModele = PodcastListViewModele()
-  @State private var episodes = EpisodeSample.samples
-  @State private var path: [EpisodeSample] = []
-  let barTitle: String = "Library"
+  let barTitle: String = "Search View"
 
   var body: some View {
     VStack {
-      Text("PodcastListView")
+      Text(barTitle)
 
-      NavigationStack(path: $path) {
-        List(viewModele.podcasts) { podcast in
-          Text(podcast.collectionName)
+      NavigationStack {
+        ScrollView {
+          LazyVStack(alignment: .leading, spacing: 30) {
+            ForEach(viewModele.podcasts) { podcast in
+              PodcastItemView(podcast: podcast)
+            }
+          }.padding(.horizontal, 15).padding(.vertical, 30)
         }
       }
       .searchable(text: $viewModele.searchTerm)

@@ -14,19 +14,14 @@ import Foundation
 /// https://itunes.apple.com/search?term=Design&entity=podcastEpisode&limit=12
 
 class PodcastListViewModele: ObservableObject {
-  @Published var searchTerm: String = "" {
-    // TODO: [CODE] Combine. Remove def value^. Delay
-    // FIXME: [BACK] Started work w 4+ symbols. "The" isnt work
-    didSet {
-      fetchPodcasts(for: searchTerm)
-    }
-  }
   @Published var podcasts: [Podcast] = []
+  // TODO: [CODE] Combine
+  @Published var searchTerm: String = "Design" { didSet { fetchPodcasts(for: searchTerm) } }
+  private var limit: Int = 12
 
   func fetchPodcasts(for searchTerm: String) {
 
-    // "https://itunes.apple.com/search?term=\(searchTerm)&entity=podcast&limit=12"
-    guard let url = URL(string: "https://itunes.apple.com/search?term=\(searchTerm)&entity=podcast&limit=12") else {
+    guard let url = URL(string: "https://itunes.apple.com/search?term=\(searchTerm)&entity=podcast&limit=\(limit)") else {
       return
     }
 

@@ -43,6 +43,9 @@
     "edit" : {
 
     },
+    "Ep count: %lld" : {
+
+    },
     "Episode cover" : {
 
     },
@@ -52,10 +55,13 @@
     "hi" : {
 
     },
+    "Last ep: \n%@" : {
+
+    },
     "Play" : {
 
     },
-    "PodcastListView" : {
+    "Podcast cover" : {
 
     },
     "Search" : {
