@@ -9,6 +9,7 @@ import Foundation
 import SwiftUI
 
 struct Library: View {
+  @StateObject private var viewModele = PodcastListViewModele()
   @State private var episodes = EpisodeSample.samples
   @State private var path: [EpisodeSample] = []
   let barTitle: String = "Library"
@@ -37,6 +38,7 @@ struct Library: View {
             .customNavigationSubtitle(episode.title)
         }
       }
+      .customSearchable(searchText: $viewModele.searchTerm)
 
       MiniPlayerView()
     }

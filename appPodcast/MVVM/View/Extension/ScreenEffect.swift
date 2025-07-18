@@ -45,7 +45,7 @@ struct ScreenEffect: ViewModifier {
 }
 
 extension View {
-  func screenEffect(showBorder: Bool = true) -> some View {
+  func withScreenEffect(showBorder: Bool = true) -> some View {
     modifier(ScreenEffect(showBorder: showBorder))
   }
 }
@@ -54,5 +54,5 @@ extension View {
   Rectangle()
     .foregroundStyle(.black)
     .frame(width: 200, height: 400)
-    .screenEffect()
+    .withScreenEffect()
 }

@@ -11,7 +11,6 @@ struct Search: View {
   var body: some View {
     VStack {
       Text("Search")
-
       PodcastListView()
     }
     .foregroundStyle(.red)

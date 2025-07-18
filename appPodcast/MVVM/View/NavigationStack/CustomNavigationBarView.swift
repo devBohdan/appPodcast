@@ -23,7 +23,7 @@ struct CustomNavigationBarView: View {
     }
     .font(.monoDisplay)
     .padding()
-    .screenEffect(showBorder: false)
+    .withScreenEffect(showBorder: false)
   }
 }
 

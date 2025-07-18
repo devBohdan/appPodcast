@@ -11,6 +11,7 @@ struct CustomNavigationBarContainerView<Content: View>: View {
   let content: Content
   @State private var title: String = "Title"
   @State private var subTitle: String?
+  @State private var searchText: String = ""
 
   init(@ViewBuilder content: () -> Content) {
     self.content = content()
@@ -32,7 +33,7 @@ struct CustomNavigationBarContainerView<Content: View>: View {
           .onPreferenceChange(NavBarSubtitlePreferenceKey.self) { value in
             self.subTitle = value
           }
-          .screenEffect()
+          .withScreenEffect()
       }.background(Color.cBG) // FIXME: [UI] Hide Color.systemBackground line 
     }
 }

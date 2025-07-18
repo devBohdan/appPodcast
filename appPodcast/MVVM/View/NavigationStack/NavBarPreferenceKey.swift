@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-/// Title
+// Title
 struct NavBarTitlePreferenceKey: PreferenceKey {
   static var defaultValue: String = ""
 
@@ -16,7 +16,7 @@ struct NavBarTitlePreferenceKey: PreferenceKey {
   }
 }
 
-/// Subtitle
+// Subtitle
 struct NavBarSubtitlePreferenceKey: PreferenceKey {
   static var defaultValue: String?
 
@@ -26,12 +26,12 @@ struct NavBarSubtitlePreferenceKey: PreferenceKey {
 }
 
 extension View {
-  /// Title
+  // Title
   func customNavigationTitle(_ title: String) -> some View {
     preference(key: NavBarTitlePreferenceKey.self, value: title)
   }
 
-  /// Subtitle
+  // Subtitle
   func customNavigationSubtitle(_ subtitle: String?) -> some View {
     preference(key: NavBarSubtitlePreferenceKey.self, value: subtitle)
   }

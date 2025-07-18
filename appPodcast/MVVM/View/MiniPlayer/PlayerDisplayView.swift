@@ -31,7 +31,7 @@ struct PlayerDisplayView: View {
       Spacer()
     }
     .padding(9)
-    .screenEffect()
+    .withScreenEffect()
   }
 }
 

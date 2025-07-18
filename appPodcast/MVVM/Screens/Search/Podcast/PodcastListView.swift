@@ -14,7 +14,6 @@ struct PodcastListView: View {
   var body: some View {
     VStack {
       Text(barTitle)
-
       NavigationStack {
         ScrollView {
           LazyVStack(alignment: .leading, spacing: 30) {
@@ -24,7 +23,7 @@ struct PodcastListView: View {
           }.padding(.horizontal, 15).padding(.vertical, 30)
         }
       }
-      .searchable(text: $viewModele.searchTerm)
+      .customSearchable(searchText: $viewModele.searchTerm)
     }
   }
 }
